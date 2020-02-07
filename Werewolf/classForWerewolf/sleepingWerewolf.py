@@ -8,6 +8,9 @@ class SleepingWerewolf(Player):
 
     async def play(self, members, centralDeck):
         await super().play(members=members, centralDeck=centralDeck)
-        self.user.send(
-            "Vous êtes le loup-rêveur. Vous ne savez donc pas qui sont les autres loups, mais eux le savent.")
-        return self.lastRole
+        if self.user not in ["gauche", "droite", "milieu"]:
+            self.user.send(
+                "Vous êtes le loup-rêveur. Vous ne savez donc pas qui sont les autres loups, mais eux le savent.")
+
+        else:
+            await asyncio.sleep(random.randint(a=4, b=7))

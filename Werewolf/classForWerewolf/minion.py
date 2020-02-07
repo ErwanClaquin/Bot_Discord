@@ -9,13 +9,19 @@ class Minion(Player):
     def getWolf(self):
         wolfs = []
         for member in self.members:
-            if member.lastRole is not None:
-                if member.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
-                    wolfs.append(member.user.name)
-            print("Wolfs are", str(wolfs))
-            return wolfs
+            if member.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
+                wolfs.append(member.user.name)
+        print("Wolfs are", str(wolfs))
+        return wolfs
 
     async def play(self, members, centralDeck):
         await super().play(members, centralDeck)
-        self.user.send("Vous êtes le Sbire. Les loups sont : " + ", ".join(self.getWolf()))
-        return self.lastRole()
+        if self.user not in ["gauche", "droite", "milieu"]:
+            wolfs = self.getWolf()
+            if len(wolfs) != 0:
+                await self.user.send("Vous êtes le Sbire. Les loups sont : " + ", ".join(wolfs))
+            else:
+                await self.user.send("Vous êtes le Sbire. Actuellement, il n'y a aucun loup.")
+
+        else:
+            await asyncio.sleep(random.randint(a=4, b=7))

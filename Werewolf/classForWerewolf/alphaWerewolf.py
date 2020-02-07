@@ -6,20 +6,11 @@ class AlphaWerewolf(Werewolf):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
 
-    def getWolf(self):
-        wolfs = []
-        for member in self.members:
-            if member.lastRole is not None:
-                if member.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane"]:
-                    wolfs.append(member.user.name)
-            print("Wolfs are", str(wolfs))
-            return wolfs
-
     def getMembersNameWithoutWolf(self):
         listMemberName = []
         for member in self.members:
-            if member.user is not self.user and member.user.firstRole not in ["Loup-Garou", "Loup Alpha",
-                                                                              "Loup Shamane", "Loup rêveur"]:
+            if member.user is not self.user and member.firstRole not in ["Loup-Garou", "Loup Alpha",
+                                                                         "Loup Shamane", "Loup rêveur"]:
                 listMemberName.append(member.user.name)
         random.shuffle(listMemberName)
         return listMemberName
@@ -39,12 +30,21 @@ class AlphaWerewolf(Werewolf):
 
     async def play(self, members, centralDeck):
         await super().play(members, centralDeck)
-        await self.user.send(
-            "Vous êtes le loup Alpha. Sélectionnez un joueur parmis" + ", ".join(
-                self.getMembersNameWithoutWolf()) + " pour le transformer en loup-garou.")
-        await self.wait()
-        member = self.getMemberFromName(self.choice)
-        member.revealed = False
-        member.lastRole = "Loup-Garou"
-        print("Member", member.name, "is now a Werwolf.")
-        return self.lastRole
+
+        if self.user not in ["gauche", "droite", "milieu"]:
+            playersWithourWolfs = self.getMembersNameWithoutWolf()
+            if len(playersWithourWolfs) != 0:
+                await self.user.send(
+                    "Vous êtes le loup Alpha. Sélectionnez un joueur parmis[" + ", ".join(
+                        self.getMembersNameWithoutWolf()) + "] pour le transformer en loup-garou.")
+                await self.wait()
+                member = self.getMemberFromName(self.choice)
+                member.revealed = False
+                member.lastRole = "Loup-Garou"
+                print("Member", member.user.name, "is now a Werwolf.")
+            else:
+                await self.user.send(
+                    "Vous êtes le loup Alpha. Actuellement, tous les joueurs sont des loups, vous ne pouvez donc pas en transformer un.")
+
+        else:
+            await asyncio.sleep(random.randint(a=4, b=7))

@@ -24,6 +24,7 @@ lgGame = {}
 
 class LG:
     def __init__(self):
+        self.rolesOrder = list()
         self.categoryName = "Loup-Garou"  # Changeable category for guild which already have this name.
         self.lastVoiceChannel = None  # To move back people after the game.
         self.msgChoiceRole = list()  # To delete them after validation of the game.
@@ -34,6 +35,9 @@ class LG:
         self.roles = list()
         self.players = list()
         self.centralDeck = list()
+        self.voiceChannel = None
+        self.textChannel = None
+
         # =-=-=-= EMBEDS =-=-=-= #
         self.embedPage1 = Embed(title="Choix de rôles numéro 1")
         self.embedPage1.add_field(name="😀 : Doppelgänger",
@@ -106,6 +110,8 @@ class LG:
         self.roles = list()
         self.players = list()
         self.centralDeck = list()
+        self.voiceChannel = None
+        self.textChannel = None
 
     async def creatingGame(self, ctx):
         if self.progression == "":
@@ -144,18 +150,18 @@ class LG:
             self.players = ctx.author.voice.channel.members
 
             # =-=-=-= CHECKING INVALID PARTY =-=-=-= #
-            """if len(self.players) < 3:
+            if len(self.players) < 3:
                 self.msgToDelete.append(await ctx.channel.send(
                     "Nombre de joueurs insuffisant : 3 joueurs minimum. (" + str(
                         len(self.players)) + " actuellement.)"))
                 await asyncio.sleep(3)
                 await self.delete()
-                return"""
+                return
             if len(self.roles) < len(self.players) + 3:
                 self.msgToDelete.append(
                     await ctx.channel.send(
-                        "Nombre de rôles insuffisants pour le nombre de joueurs : minimum" + str(
-                            len(self.players) + 3) + "rôles (" + str(
+                        "Nombre de rôles insuffisants pour le nombre de joueurs : minimum " + str(
+                            len(self.players) + 3) + " rôles (" + str(
                             len(self.players)) + " joueurs + 3 dans le tas central.)"))
                 await asyncio.sleep(3)
                 await self.delete()
@@ -168,8 +174,10 @@ class LG:
                     " joueurs + 3 dans le tas central. Certains rôles ne seront pas pris en compte."))
 
             await self.delAllMsg(waitingTime=3)
+            print("Début de la partie avec les rôles suivants : " + ", ".join(self.roles))
             self.msgToDelete.append(await ctx.channel.send(
                 "Début de la partie avec les rôles suivants : " + ", ".join(self.roles)))
+            print("Les joueurs sont les suivants : " + ", ".join(getAuthor(self.players)))
             self.msgToDelete.append(await ctx.channel.send(
                 "Les joueurs sont les suivants : " + ", ".join(getAuthor(self.players))))
 
@@ -189,9 +197,13 @@ class LG:
     async def startGame(self, ctx):
         # =-=-=-= ATTRIBUTE ROLES FOR PLAYERS =-=-=-= #
         self.msgToDelete.append(await ctx.message.channel.send("Attribution des rôles ..."))
+        self.rolesOrder = self.roles.copy()
+        self.rolesOrder = list(dict.fromkeys(self.rolesOrder))  # Remove redundant roles for playGame()
         random.shuffle(self.players)
         random.shuffle(self.roles)
+
         for numberPlayer in range(len(self.players)):
+            print(numberPlayer, " : ", self.players[numberPlayer])
             # At least there is less player than role, so I need to get the number of players instead of roles.
             if self.roles[numberPlayer] == "Doppelgänger":
                 self.playersAndRoles.append(
@@ -261,12 +273,14 @@ class LG:
                 self.playersAndRoles.append(
                     BodyGuard(user=self.players[numberPlayer], firstRole=self.roles[numberPlayer], botRef=bot))
 
-            elif self.roles[numberPlayer] == "Loup Rêveur":
+            elif self.roles[numberPlayer] == "Loup rêveur":
                 self.playersAndRoles.append(
                     SleepingWerewolf(user=self.players[numberPlayer], firstRole=self.roles[numberPlayer], botRef=bot))
-
+            else:
+                print("GROS PROBLEME : ", self.roles[numberPlayer])
         # =-=-=-= ATTRIBUTE ROLES FOR DECK =-=-=-= #
         for numberCentralRole in range(len(self.players), len(self.players) + 3):
+            print("numberCentralRole", numberCentralRole)
             if numberCentralRole == len(self.players) + 0:
                 position = "gauche"
             elif numberCentralRole == len(self.players) + 1:
@@ -275,79 +289,69 @@ class LG:
                 position = "droite"
 
             if self.roles[numberCentralRole] == "Doppelgänger":
-                self.centralDeck[numberCentralRole] = Doppelganger(user=position,
-                                                                   firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(
+                    Doppelganger(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Sbire":
-                self.centralDeck[numberCentralRole] = Minion(user=position,
-                                                             firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Minion(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Loup-Garou":
-                self.centralDeck[numberCentralRole] = Werewolf(user=position,
-                                                               firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Werewolf(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Loup Alpha":
-                self.centralDeck[numberCentralRole] = AlphaWerewolf(user=position,
-                                                                    firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(
+                    AlphaWerewolf(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Loup Shamane":
-                self.centralDeck[numberCentralRole] = ShamanWerewolf(user=position,
-                                                                     firstRole=self.roles[numberCentralRole],
-                                                                     botRef=bot)
+                self.centralDeck.append(
+                    ShamanWerewolf(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Franc-Maçon":
-                self.centralDeck[numberCentralRole] = Freemason(user=position,
-                                                                firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Freemason(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Voyante":
-                self.centralDeck[numberCentralRole] = Seer(user=position,
-                                                           firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Seer(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Chasseur de Fantômes":
-                self.centralDeck[numberCentralRole] = GoshtHunter(user=position,
-                                                                  firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(GoshtHunter(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Apprentie voyante":
-                self.centralDeck[numberCentralRole] = BeginnerSeer(user=position,
-                                                                   firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(
+                    BeginnerSeer(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Voleur":
-                self.centralDeck[numberCentralRole] = Thief(user=position,
-                                                            firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Thief(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Noiseuse":
-                self.centralDeck[numberCentralRole] = Troublemaker(user=position,
-                                                                   firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(
+                    Troublemaker(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Soûlard":
-                self.centralDeck[numberCentralRole] = Drunkard(user=position,
-                                                               firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Drunkard(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Insomniaque":
-                self.centralDeck[numberCentralRole] = Insomniac(user=position,
-                                                                firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Insomniac(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Divinateur":
-                self.centralDeck[numberCentralRole] = Diviner(user=position,
-                                                              firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Diviner(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Tanneur":
-                self.centralDeck[numberCentralRole] = Tanner(user=position,
-                                                             firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Tanner(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Chasseur":
-                self.centralDeck[numberCentralRole] = Hunter(user=position,
-                                                             firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(Hunter(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
             elif self.roles[numberCentralRole] == "Garde du corps":
-                self.centralDeck[numberCentralRole] = BodyGuard(user=position,
-                                                                firstRole=self.roles[numberCentralRole], botRef=bot)
+                self.centralDeck.append(BodyGuard(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
 
-            elif self.roles[numberCentralRole] == "Loup Rêveur":
-                self.centralDeck[numberCentralRole] = SleepingWerewolf(user=position,
-                                                                       firstRole=self.roles[numberCentralRole],
-                                                                       botRef=bot)
+            elif self.roles[numberCentralRole] == "Loup rêveur":
+                self.centralDeck.append(
+                    SleepingWerewolf(user=position, firstRole=self.roles[numberCentralRole], botRef=bot))
+            else:
+                print("GROS PROBLEME", self.roles[numberCentralRole])
 
+        print(len(self.playersAndRoles))
+        print(len(self.centralDeck))
         # =-=-=-= REMOVING REDUNDANT CATEGORY =-=-=-= #
         self.msgToDelete.append(await ctx.message.channel.send("Création du village ..."))
         print("Starting game ...")
@@ -357,11 +361,11 @@ class LG:
         # =-=-=-= CREATING GAME SPACE =-=-=-= #
         self.category = await ctx.guild.create_category_channel(name=self.categoryName)
         print("Category created")
-        await ctx.guild.create_text_channel(name="Partie", category=self.category)
+        self.textChannel = await ctx.guild.create_text_channel(name="Partie", category=self.category)
         print("Text channel created")
-        voiceChannel = await ctx.guild.create_voice_channel(name="Village", category=self.category)
+        self.voiceChannel = await ctx.guild.create_voice_channel(name="Village", category=self.category)
         print("Voice channel created")
-        await voiceChannel.edit(user_limit=len(self.players) + 1, sync_permissions=True)
+        await self.voiceChannel.edit(user_limit=len(self.players) + 1, sync_permissions=True)
         self.msgToDelete.append(await ctx.message.channel.send("Déplacement des joueurs ..."))
 
         # =-=-=-= MOVING PLAYERS =-=-=-= #
@@ -383,20 +387,64 @@ class LG:
         await self.delete()
 
     async def playGame(self, ctx):
-        await self.playersAndRoles[0].play(members=self.playersAndRoles)
-        await self.playersAndRoles[1].play(members=self.playersAndRoles)
+        print(len(self.playersAndRoles))
+        for player in self.playersAndRoles:
+            print(player.user.name + " : " + player.firstRole)
+            await self.textChannel.send(player.user.name + " : " + player.firstRole)
+        print(len(self.centralDeck))
+        for deck in self.centralDeck:
+            print(deck.user + " : " + deck.firstRole)
+            await self.textChannel.send(deck.user + " : " + deck.firstRole)
+        print("\n\n")
+        for role in self.rolesOrder:
+            for player in self.playersAndRoles:
+                if player.firstRole == role:
+                    await player.play(members=self.playersAndRoles, centralDeck=self.centralDeck)
+                    print(player.user.name, "played role :", player.firstRole)
+                elif player.newRole == "Insomniaque":
+                    player.play(members=self.playersAndRoles, centralDeck=self.centralDeck)
+
+        await self.textChannel.send("Fin de la partie, l'implémentation du vote n'est pas encore faite.")
+        for player in self.playersAndRoles:
+            print(player.user.name + " : " + player.lastRole)
+            await self.textChannel.send(player.user.name + " : " + player.lastRole)
+        for deck in self.centralDeck:
+            print(deck.user + " : " + deck.lastRole)
+            await self.textChannel.send(deck.user + " : " + deck.lastRole)
+        await asyncio.sleep(10)
         await self.endGame(ctx=ctx)
 
-    async def nextRole(self, ctx):
-        if len(self.roles) > 0:
-            role = self.roles.pop(0)
+    async def vote(self):
+        await self.textChannel.send(
+            "Tous les joueurs ont joués ! Le décompte peut commencer. Actuellement il y 'a 2min de délibarations.")
+
+    """async def vote(self, members):
+        self.members = members
+        await self.user.send("Veuillez voter un joueur parmis " + ", ".join(self.getMembersName()))
+
+    async def waitVote(self):
+        msg = await self.bot.wait_for('message', check=self.checkVote)
+        print("Attempt to find user")
+
+    def checkVote(self, msg):
+        if not is_me(msg) or (is_me(msg) and self.endVote):
+            if msg.channel.id == self.user.dm_channel.id:
+                print("Message from", msg.author + "'s DM")
+                return True
+        return False
+
+    async def checkingVote(self, msg):
+        if is_me(msg) and self.endVote:
+            self.user.send("Vous pouvez arrêter de voter, les messages ne seront plus pris en compte.")
 
         else:
-            await self.endGame(ctx=ctx)
-
-    async def playRole(self, user):
-
-        pass
+            if msg.content in self.members:
+                self.vote = self.getMemberFromName(msg.content)
+                await self.user.send("Vous avez voter pour : " + self.vote.name)
+            else:
+                await self.user.send("Erreur, impossible de trouver le joueur. Veuillez réessayer parmis : " +
+                                     ", ".join(self.getMembersName()))
+            await self.waitVote()"""
 
     async def deleteCategory(self, ctx, reason=""):
         for category in ctx.guild.categories:
@@ -406,9 +454,7 @@ class LG:
                 await category.delete(reason=reason)
 
     async def getRoleFromEmoji(self, ctx, reactions):
-        if reactions.count > 0:
-            self.roles.append("Doppelgänger")
-            """
+        if reactions.count > 1:
             for msgId in self.msgChoiceRole:
                 msg = await ctx.channel.fetch_message(msgId)
                 for field in msg.embeds[0].fields:
@@ -417,7 +463,6 @@ class LG:
                             self.roles.append(field.name[4:])
                             if field.name[4:] in ["Franc-Maçon"]:
                                 self.roles.append(field.name[4:])
-    """
 
     async def wait(self, ctx):
         msg = await ctx.channel.send(self.progression + ", veuillez patientez.")

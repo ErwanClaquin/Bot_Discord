@@ -8,14 +8,6 @@ class Seer(Player):
         self.state = None
         self.firstChoice = None
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
-        await self.user.send(
-            "Vous êtes la voyante. Écrivez ```joueurs``` si vous souhaitez voir une carte d'un joueur ou ```deck``` si vous souhaitez voir deux cartes au centre.")
-
-        await self.wait()
-        return self.lastRole
-
     async def checkingMessage(self, msg):
         if self.state is None:
             if msg.content not in ["joueurs", "deck"]:
@@ -29,6 +21,12 @@ class Seer(Player):
                 print("Succeed")
                 self.state = msg.content
                 await msg.author.send("Catégorie choisie : " + msg.content + ".")
+                if msg.content == "joueurs":
+                    await self.user.send("Écrivez le nom d'une personne dont vous souhaitez voir la carte parmis "
+                                         + ", ".join(self.getMembersName()))
+                else:
+                    await self.user.send(
+                        " Écrivez une position parmis [gauche, droite, milieu] pour voir une des carte.")
                 await self.wait()
 
         elif self.state == "joueurs":
@@ -50,15 +48,16 @@ class Seer(Player):
         elif self.state == "deck":
             if self.firstChoice == msg.content:
                 print("Already seen this role.")
-                await self.user.send("Vous avez déjà choisi de regarder ce rôle. Veuillez réessayer.")
+                await self.user.send("Vous avez déjà choisi de regarder ce rôle. Veuillez réessayer")
                 await self.wait()
             else:
                 if self.getRoleFromDeck(position=msg.content) is not None:
                     print("Succeed")
                     await self.user.send(
-                        "Il y a " + self.getRoleFromDeck(position=msg.content) + " à la position choisie.")
+                        "Il y a " + self.getRoleFromDeck(position=msg.content).lastRole + " à la position choisie.")
                     if self.firstChoice is None:
-                        await self.user.send("Choisissez une autre position :")
+                        self.firstChoice = msg.content
+                        await self.user.send("Choisissez une autre position parmis :")
                         await self.wait()
                     else:
                         print("End of look.")
@@ -66,3 +65,14 @@ class Seer(Player):
                     print("Failed")
                     await self.user.send("Erreur, impossible de trouver le rôle visé. Veuillez réessayer.")
                     await self.wait()
+
+    async def play(self, members, centralDeck):
+        await super().play(members, centralDeck)
+        if self.user not in ["gauche", "droite", "milieu"]:
+            await self.user.send(
+                "Vous êtes la voyante. Écrivez ```joueurs``` si vous souhaitez voir une carte d'un joueur" +
+                " ou ```deck``` si vous souhaitez voir deux cartes au centre.")
+            await self.wait()
+
+        else:
+            await asyncio.sleep(random.randint(a=4, b=7))

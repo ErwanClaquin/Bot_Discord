@@ -8,5 +8,8 @@ class Insomniac(Player):
 
     async def play(self, members, centralDeck):
         await super().play(members, centralDeck)
-        await self.user.send("Vous êtes l'Insomniaque. Votre rôle final est un(e) " + self.lastRole)
-        return self.lastRole
+        if self.user not in ["gauche", "droite", "milieu"]:
+            await self.user.send("Vous êtes l'Insomniaque. Votre rôle final est un(e) " + self.lastRole)
+
+        else:
+            await asyncio.sleep(random.randint(a=4, b=7))

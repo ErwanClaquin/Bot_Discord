@@ -6,17 +6,11 @@ class Hunter(Player):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
 
-    async def play(self, members, centralDeck):
-        await super().play(members=members, centralDeck=centralDeck)
-        self.user.send(
-            "Vous êtes le chasseur. Vous pourrez tuer quelqu'un à votre mort.")
-        return self.lastRole
-
     async def on_death(self, members, channel):
         deadPlayer = []
-        dead = await super().on_death(members=members, channel=channel)
-        if dead is not None:
-            deadPlayer.append(dead)
+        selfdead = await super().on_death(members=members, channel=channel)
+        if selfdead is not None:
+            deadPlayer.append(selfdead)
         else:
             await self.user.send(
                 "La majoritée vous a visé ! Vengez-vous parmis " + ", ".join(self.getMembersName()) + ".")
@@ -42,3 +36,11 @@ class Hunter(Player):
             print("Succeed")
             self.choice = msg.content
             await msg.author.send("Joueur choisi : " + self.choice + ".")
+
+    async def play(self, members, centralDeck):
+        await super().play(members=members, centralDeck=centralDeck)
+        if self.user not in ["gauche", "droite", "milieu"]:
+            await self.user.send(
+                "Vous êtes le chasseur. Vous pourrez tuer quelqu'un à votre mort.")
+        else:
+            await asyncio.sleep(random.randint(a=4, b=7))

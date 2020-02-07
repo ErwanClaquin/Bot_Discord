@@ -6,17 +6,6 @@ class Diviner(Player):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
-        await self.user.send(
-            "Vous êtes le Divinateur. Écrivez le nom d'une personne dont vous souhaitez révéler le rôle parmis ["
-            + ", ".join(self.getMembersName()) + "].")
-
-        await self.wait()
-        member = self.getMemberFromName(self.choice)
-
-        return self.lastRole
-
     async def checkingMessage(self, msg):
         if msg.content not in self.getMembersName():
             # Failed to find user
@@ -37,3 +26,17 @@ class Diviner(Player):
         else:
             await self.user.send(
                 user.name + " est un " + user.lastRole + ", il ne sera donc pas révélé aux autres joueurs.")
+
+    async def play(self, members, centralDeck):
+        await super().play(members, centralDeck)
+        if self.user not in ["gauche", "droite", "milieu"]:
+
+            await self.user.send(
+                "Vous êtes le Divinateur. Écrivez le nom d'une personne dont vous souhaitez révéler le rôle parmis ["
+                + ", ".join(self.getMembersName()) + "].")
+            await self.wait()
+            member = self.getMemberFromName(self.choice)
+            member.revealed = True
+
+        else:
+            await asyncio.sleep(random.randint(a=4, b=7))
