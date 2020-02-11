@@ -9,7 +9,7 @@ class SleepingWerewolf(Player):
     async def play(self, members, centralDeck):
         await super().play(members=members, centralDeck=centralDeck)
         if self.user not in ["gauche", "droite", "milieu"]:
-            self.user.send(
+            await self.user.send(
                 "Vous êtes le loup-rêveur. Vous ne savez donc pas qui sont les autres loups, mais eux le savent.")
 
         else:

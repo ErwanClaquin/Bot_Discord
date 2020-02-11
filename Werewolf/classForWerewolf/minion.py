@@ -9,7 +9,8 @@ class Minion(Player):
     def getWolf(self):
         wolfs = []
         for member in self.members:
-            if member.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
+            if member.firstRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"] or member.newRole \
+                    in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
                 wolfs.append(member.user.name)
         print("Wolfs are", str(wolfs))
         return wolfs

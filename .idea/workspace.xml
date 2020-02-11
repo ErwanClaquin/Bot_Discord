@@ -2,33 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Musics/AC_DC - Thunderstruck (Official Video)-v2AC41dglnM.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Musics/Investigations (Kevin MacLeod) - Gaming Background Music (HD)-i-4IhItBtTg.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Musics/Les Ratz - Pas de Panique à bord (Clip officiel)-sBfimllcI7Q.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Musics/Nirvana - Smells Like Teen Spirit (lyrics)-zYxkezUr8MQ.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Musics/Ratz - Générique Pas de panique à bord - Saison 1-w9c77AAFP3Y.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Musics/Sneaky Adventure - Vanoss Gaming Background Music (HD)-E9Tg8fpUph4.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Musics/screamer-audio.mp4-kw56M7qbzSc.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/alphaWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/alphaWerewolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/beginnerSeer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/beginnerSeer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/bodyGuard.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/bodyGuard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/diviner.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/diviner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/doppelganger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/doppelganger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/drunkard.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/drunkard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/freemasson.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/freemasson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/goshtHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/goshtHunter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/hunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/hunter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/insomniac.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/insomniac.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/minion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/minion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/seer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/seer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/shamanWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/shamanWerewolf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/sleepingWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/sleepingWerewolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/tanner.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/tanner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/thief.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/thief.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/troublemaker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/troublemaker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/werewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/werewolf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/gameWerwolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/gameWerwolf.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -69,6 +49,27 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="gameWerwolf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bot_Discord" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Werewolf" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Werewolf/gameWerwolf.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bot_Discord" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,6 +115,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.gameWerwolf" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -148,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580944024326</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Second Push to the git.&#10;Checking almost all roles, maybe there is still some bug and errors.&#10;Not done the &quot;vote&quot; part yet.">
+      <created>1581034475031</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581034475031</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -156,54 +165,55 @@
       <path value="$PROJECT_DIR$/Bot_Discord" />
     </ignored-roots>
     <MESSAGE value="First Push to the git.&#10;Not working yet, still work to do but I need to save this online." />
-    <option name="LAST_COMMIT_MESSAGE" value="First Push to the git.&#10;Not working yet, still work to do but I need to save this online." />
+    <MESSAGE value="Second Push to the git.&#10;Checking almost all roles, maybe there is still some bug and errors.&#10;Not done the &quot;vote&quot; part yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Second Push to the git.&#10;Checking almost all roles, maybe there is still some bug and errors.&#10;Not done the &quot;vote&quot; part yet." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581006605900">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006605900" />
-    <state x="967" y="345" key="CommitChangelistDialog2" timestamp="1580944014595">
+    <state x="967" y="345" key="CommitChangelistDialog2" timestamp="1581034469152">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580944014595" />
+    <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581034469152" />
     <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog" timestamp="1580129769400">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580129769400" />
-    <state width="2539" height="369" key="GridCell.Tab.0.bottom" timestamp="1581034282017">
+    <state width="1257" height="371" key="GridCell.Tab.0.bottom" timestamp="1581456499406">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="472" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171834" />
     <state width="1899" height="152" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="2539" height="369" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581034282017" />
+    <state width="1257" height="371" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581456499406" />
     <state width="2539" height="274" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="2539" height="369" key="GridCell.Tab.0.center" timestamp="1581034282017">
+    <state width="1257" height="371" key="GridCell.Tab.0.center" timestamp="1581456499405">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="472" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171834" />
     <state width="1899" height="152" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="2539" height="369" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581034282017" />
+    <state width="1257" height="371" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581456499405" />
     <state width="2539" height="274" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.center/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="2539" height="369" key="GridCell.Tab.0.left" timestamp="1581034282016">
+    <state width="1257" height="371" key="GridCell.Tab.0.left" timestamp="1581456499405">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="472" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171833" />
     <state width="1899" height="152" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="2539" height="369" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581034282016" />
+    <state width="1257" height="371" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581456499405" />
     <state width="2539" height="274" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.left/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="2539" height="369" key="GridCell.Tab.0.right" timestamp="1581034282017">
+    <state width="1257" height="371" key="GridCell.Tab.0.right" timestamp="1581456499406">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="472" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171834" />
     <state width="1899" height="152" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="2539" height="369" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581034282017" />
+    <state width="1257" height="371" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581456499406" />
     <state width="2539" height="274" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.right/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
@@ -223,27 +233,31 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="936" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577411148293" />
-    <state x="1229" y="225" key="SettingsEditor" timestamp="1580997883831">
+    <state x="1229" y="225" key="SettingsEditor" timestamp="1581282552153">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="922" y="167" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577402790488" />
-    <state x="1229" y="225" key="SettingsEditor/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580997883831" />
+    <state x="1229" y="225" key="SettingsEditor/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581282552153" />
     <state width="664" height="601" key="SwitcherDM" timestamp="1580940869943">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1577407838851" />
     <state width="664" height="601" key="SwitcherDM/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580940869943" />
+    <state x="1062" y="427" key="Vcs.Push.Dialog.v2" timestamp="1581034484515">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581034484515" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579812317882">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171864" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579812317882" />
-    <state x="440" y="150" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1580996587052">
+    <state x="440" y="150" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1581451249074">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577479953840" />
     <state x="-1590" y="1168" width="458" height="275" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298220002" />
-    <state x="440" y="150" width="607" height="369" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580996587052" />
+    <state x="440" y="150" width="607" height="369" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581451249074" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814056832" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579556565026" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579782939019" />

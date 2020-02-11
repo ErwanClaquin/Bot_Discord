@@ -43,7 +43,7 @@ class Seer(Player):
                 await msg.author.send("Joueur choisi : " + self.choice + ".")
                 member = self.getMemberFromName(self.choice)
                 await self.user.send(member.user.name + " est un(e) " + member.lastRole)
-                print("Member", member.name, "is a ", member.lastRole)
+                print("Member", member.user.name, "is a ", member.lastRole)
 
         elif self.state == "deck":
             if self.firstChoice == msg.content:

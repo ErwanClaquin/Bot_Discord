@@ -17,6 +17,7 @@ from Werewolf.classForWerewolf.sleepingWerewolf import *
 from Werewolf.classForWerewolf.tanner import *
 from Werewolf.classForWerewolf.thief import *
 from Werewolf.classForWerewolf.troublemaker import *
+import time
 
 messagesChoice = {}
 lgGame = {}
@@ -37,6 +38,7 @@ class LG:
         self.centralDeck = list()
         self.voiceChannel = None
         self.textChannel = None
+        self.roleForPlayer = None
 
         # =-=-=-= EMBEDS =-=-=-= #
         self.embedPage1 = Embed(title="Choix de rôles numéro 1")
@@ -112,6 +114,7 @@ class LG:
         self.centralDeck = list()
         self.voiceChannel = None
         self.textChannel = None
+        self.roleForPlayer = None
 
     async def creatingGame(self, ctx):
         if self.progression == "":
@@ -150,7 +153,7 @@ class LG:
             self.players = ctx.author.voice.channel.members
 
             # =-=-=-= CHECKING INVALID PARTY =-=-=-= #
-            if len(self.players) < 3:
+            if len(self.players) < 1:
                 self.msgToDelete.append(await ctx.channel.send(
                     "Nombre de joueurs insuffisant : 3 joueurs minimum. (" + str(
                         len(self.players)) + " actuellement.)"))
@@ -199,11 +202,11 @@ class LG:
         self.msgToDelete.append(await ctx.message.channel.send("Attribution des rôles ..."))
         self.rolesOrder = self.roles.copy()
         self.rolesOrder = list(dict.fromkeys(self.rolesOrder))  # Remove redundant roles for playGame()
+        random.seed(time.time())
         random.shuffle(self.players)
         random.shuffle(self.roles)
 
         for numberPlayer in range(len(self.players)):
-            print(numberPlayer, " : ", self.players[numberPlayer])
             # At least there is less player than role, so I need to get the number of players instead of roles.
             if self.roles[numberPlayer] == "Doppelgänger":
                 self.playersAndRoles.append(
@@ -280,7 +283,6 @@ class LG:
                 print("GROS PROBLEME : ", self.roles[numberPlayer])
         # =-=-=-= ATTRIBUTE ROLES FOR DECK =-=-=-= #
         for numberCentralRole in range(len(self.players), len(self.players) + 3):
-            print("numberCentralRole", numberCentralRole)
             if numberCentralRole == len(self.players) + 0:
                 position = "gauche"
             elif numberCentralRole == len(self.players) + 1:
@@ -350,51 +352,85 @@ class LG:
             else:
                 print("GROS PROBLEME", self.roles[numberCentralRole])
 
-        print(len(self.playersAndRoles))
-        print(len(self.centralDeck))
         # =-=-=-= REMOVING REDUNDANT CATEGORY =-=-=-= #
-        self.msgToDelete.append(await ctx.message.channel.send("Création du village ..."))
-        print("Starting game ...")
-        self.lastVoiceChannel = ctx.author.voice.channel
-        await self.deleteCategory(ctx=ctx, reason="Pas de dualité de channel.")
+        await self.removeCategory(ctx=ctx)
 
         # =-=-=-= CREATING GAME SPACE =-=-=-= #
-        self.category = await ctx.guild.create_category_channel(name=self.categoryName)
-        print("Category created")
-        self.textChannel = await ctx.guild.create_text_channel(name="Partie", category=self.category)
-        print("Text channel created")
-        self.voiceChannel = await ctx.guild.create_voice_channel(name="Village", category=self.category)
-        print("Voice channel created")
-        await self.voiceChannel.edit(user_limit=len(self.players) + 1, sync_permissions=True)
-        self.msgToDelete.append(await ctx.message.channel.send("Déplacement des joueurs ..."))
+        await self.createGameSpace(ctx=ctx)
 
         # =-=-=-= MOVING PLAYERS =-=-=-= #
-        """for member in ctx.author.voice.channel.members:
-            await member.move_to(channel=voiceChannel, reason="Début de partie.")"""
-        print("Game started")
+
         self.msgToDelete.append(await ctx.message.channel.send("Début de la partie."))
 
         await ctx.channel.send("Cleaning all messages ...")
         await self.delAllMsg(2)
         await self.playGame(ctx=ctx)
 
+    async def removeCategory(self, ctx):
+        self.msgToDelete.append(await ctx.message.channel.send("Création du village ..."))
+        print("Create village ...")
+        self.lastVoiceChannel = ctx.author.voice.channel
+        await self.deleteCategory(ctx=ctx, reason="Pas de dualité de channel.")
+
+    async def createGameSpace(self, ctx):
+        self.category = await ctx.guild.create_category_channel(name=self.categoryName)
+        print("Category created")
+        await ctx.guild.create_role(name=self.categoryName)
+        self.roleForPlayer = discord.utils.get(ctx.guild.roles, name=self.categoryName)
+        print(self.roleForPlayer.__class__)
+        await self.category.set_permissions(self.roleForPlayer, read_messages=True, view_channel=False)
+        roleEveryone = discord.utils.get(ctx.guild.roles, name="@everyone")
+        await self.category.set_permissions(roleEveryone, view_channel=False)
+        self.textChannel = await ctx.guild.create_text_channel(name="Partie", category=self.category)
+        print("Text channel created")
+        self.voiceChannel = await ctx.guild.create_voice_channel(name="Village", category=self.category)
+        print("Voice channel created")
+        await self.voiceChannel.edit(user_limit=len(self.players) + 1, sync_permissions=True)
+        await self.textChannel.edit(nsfw=True, sync_permissions=True)
+
+    async def movePlayer(self, ctx):
+        self.msgToDelete.append(await ctx.message.channel.send("Déplacement des joueurs ..."))
+
+        for member in ctx.author.voice.channel.members:
+            await member.add_roles(self.roleForPlayer, "Début de partie.")
+            # await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
+        print("Game started")
+
+    def getMemberFromName(self, name):
+        for member in self.playersAndRoles:
+            if name in member.user.name:
+                return member
+
+    def getMembersName(self, forDisplay=False):
+        listMemberName = []
+        for member in self.playersAndRoles:
+            if forDisplay:
+                name = "```" + member.user.name + "```"
+
+            else:
+                name = member.user.name
+            listMemberName.append(name)
+        random.shuffle(listMemberName)
+        return listMemberName
+
     async def endGame(self, ctx):
         print("Ending game ...")
-        for member in self.players:
+        ctx.guild.remove_roles(self.roleForPlayer, "Fin de partie.")
+
+        for member in self.voiceChannel.members:
             await member.move_to(channel=self.lastVoiceChannel, reason="Fin de partie.")
         await self.deleteCategory(ctx=ctx, reason="Fin de partie.")
         print("Game ended")
         await self.delete()
 
     async def playGame(self, ctx):
-        print(len(self.playersAndRoles))
+        """print(len(self.playersAndRoles))
         for player in self.playersAndRoles:
+            await player.user.send("Vous êtes " + player.firstRole + ", attendez votre tour.")
             print(player.user.name + " : " + player.firstRole)
-            await self.textChannel.send(player.user.name + " : " + player.firstRole)
         print(len(self.centralDeck))
         for deck in self.centralDeck:
             print(deck.user + " : " + deck.firstRole)
-            await self.textChannel.send(deck.user + " : " + deck.firstRole)
         print("\n\n")
         for role in self.rolesOrder:
             for player in self.playersAndRoles:
@@ -404,49 +440,56 @@ class LG:
                 elif player.newRole == "Insomniaque":
                     player.play(members=self.playersAndRoles, centralDeck=self.centralDeck)
 
-        await self.textChannel.send("Fin de la partie, l'implémentation du vote n'est pas encore faite.")
         for player in self.playersAndRoles:
             print(player.user.name + " : " + player.lastRole)
-            await self.textChannel.send(player.user.name + " : " + player.lastRole)
         for deck in self.centralDeck:
             print(deck.user + " : " + deck.lastRole)
-            await self.textChannel.send(deck.user + " : " + deck.lastRole)
-        await asyncio.sleep(10)
+        await self.letVote()"""
+
+        await asyncio.sleep(30)
         await self.endGame(ctx=ctx)
 
-    async def vote(self):
-        await self.textChannel.send(
-            "Tous les joueurs ont joués ! Le décompte peut commencer. Actuellement il y 'a 2min de délibarations.")
+    async def letVote(self):
+        mStart = await self.textChannel.send(
+            "Dès maintenant les votes sont pris en compte. Votez parmis :" + "".join(self.getMembersName(
+                forDisplay=True)) + "en écrivant un des pseudos ci-dessus. Évitez de trop spammer si vous ne voulez pas que le décompte soit trop long.")
+        await asyncio.sleep(7)
+        await self.textChannel.send("Plus qu'une minute.")
+        await asyncio.sleep(6)
+        mEnd = await self.textChannel.send("Le décompte est terminé, obtention des votes ...")
+        votes = await self.getVote(msgStart=mStart, msgEnd=mEnd)
+        await self.applyVote(votes=votes)
+        await self.textChannel.send("Fin de la partie. Suppression du channel dans 1 minute.")
+        await asyncio.sleep(60)
 
-    """async def vote(self, members):
-        self.members = members
-        await self.user.send("Veuillez voter un joueur parmis " + ", ".join(self.getMembersName()))
+    async def getVote(self, msgStart, msgEnd):
+        votes = {player: None for player in self.getMembersName()}
+        async for msg in self.textChannel.history(limit=None, before=msgEnd.created_at, after=msgStart.created_at):
+            if msg.author.name in self.getMembersName() and msg.content in self.getMembersName() and msg.content != msg.author.name:
+                if votes[msg.author.name] is None:
+                    print(msg.author.name, "voted", msg.content)
+                    votes[msg.author.name] = msg.content
+                    if None not in votes.values():
+                        break
+        return votes
 
-    async def waitVote(self):
-        msg = await self.bot.wait_for('message', check=self.checkVote)
-        print("Attempt to find user")
+    async def applyVote(self, votes):
+        voteCount = {vote: 0 for vote in self.getMembersName()}
+        voteCount[None] = -len(self.players) - 10
+        for vote in votes.values():
+            voteCount[vote] += 1
 
-    def checkVote(self, msg):
-        if not is_me(msg) or (is_me(msg) and self.endVote):
-            if msg.channel.id == self.user.dm_channel.id:
-                print("Message from", msg.author + "'s DM")
-                return True
-        return False
+        playerOrder = sorted(voteCount.items(), key=lambda x: x[1], reverse=True)
+        print(playerOrder)
+        for i in range(len(self.players)):
+            player = self.getMemberFromName(name=playerOrder[i][0])
+            print("player :", player)
+            isDead = await player.isDead(channel=self.textChannel)
+            if isDead:
+                await player.death(channel=self.textChannel)
+                break
 
-    async def checkingVote(self, msg):
-        if is_me(msg) and self.endVote:
-            self.user.send("Vous pouvez arrêter de voter, les messages ne seront plus pris en compte.")
-
-        else:
-            if msg.content in self.members:
-                self.vote = self.getMemberFromName(msg.content)
-                await self.user.send("Vous avez voter pour : " + self.vote.name)
-            else:
-                await self.user.send("Erreur, impossible de trouver le joueur. Veuillez réessayer parmis : " +
-                                     ", ".join(self.getMembersName()))
-            await self.waitVote()"""
-
-    async def deleteCategory(self, ctx, reason=""):
+    async def deleteCategory(self, ctx, reason="No reason available"):
         for category in ctx.guild.categories:
             if category.name == self.categoryName:
                 for chan in category.channels:
@@ -492,7 +535,7 @@ async def lg(ctx, val=""):
             if lgGame.get(ctx.guild.name) is not None:
                 await lgGame[ctx.guild.name].validationGame(ctx)
             else:
-                await ctx.channel.send("Patie non créée.")
+                await ctx.channel.send("Partie non créée.")
         else:
             await ctx.channel.send(
                 "Commande inconnue. Tapez <<" + bot.command_prefix + "lg>> pour plus d'informations")
