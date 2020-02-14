@@ -153,6 +153,7 @@ class LG:
             self.players = ctx.author.voice.channel.members
 
             # =-=-=-= CHECKING INVALID PARTY =-=-=-= #
+            print("TODO : REPLACE HERE BY 3 PLAYERS MIN, JUST DID THAT TO CHECK WHEN I'M ALONE")
             if len(self.players) < 1:
                 self.msgToDelete.append(await ctx.channel.send(
                     "Nombre de joueurs insuffisant : 3 joueurs minimum. (" + str(
@@ -281,6 +282,7 @@ class LG:
                     SleepingWerewolf(user=self.players[numberPlayer], firstRole=self.roles[numberPlayer], botRef=bot))
             else:
                 print("GROS PROBLEME : ", self.roles[numberPlayer])
+
         # =-=-=-= ATTRIBUTE ROLES FOR DECK =-=-=-= #
         for numberCentralRole in range(len(self.players), len(self.players) + 3):
             if numberCentralRole == len(self.players) + 0:
@@ -352,6 +354,9 @@ class LG:
             else:
                 print("GROS PROBLEME", self.roles[numberCentralRole])
 
+        # =-=-=-= REMOVING REDUNDANT ROLES =-=-=-= #
+        await self.createRole(ctx=ctx)
+
         # =-=-=-= REMOVING REDUNDANT CATEGORY =-=-=-= #
         await self.removeCategory(ctx=ctx)
 
@@ -366,7 +371,19 @@ class LG:
         await self.delAllMsg(2)
         await self.playGame(ctx=ctx)
 
+    async def createRole(self, ctx):
+        await self.deleteRole(ctx=ctx, reason="Début de partie.")
+        await ctx.guild.create_role(name=self.categoryName)
+        await asyncio.sleep(1)
+        self.roleForPlayer = discord.utils.get(ctx.guild.roles, name=self.categoryName)
+        print("Role created.")
+        member = await ctx.guild.fetch_member(bot.user.id)
+        print(self.roleForPlayer.__class__)
+        print(member.__class__)
+        await member.add_roles(self.roleForPlayer, reason="Début de partie.")
+
     async def removeCategory(self, ctx):
+
         self.msgToDelete.append(await ctx.message.channel.send("Création du village ..."))
         print("Create village ...")
         self.lastVoiceChannel = ctx.author.voice.channel
@@ -375,12 +392,10 @@ class LG:
     async def createGameSpace(self, ctx):
         self.category = await ctx.guild.create_category_channel(name=self.categoryName)
         print("Category created")
-        await ctx.guild.create_role(name=self.categoryName)
-        self.roleForPlayer = discord.utils.get(ctx.guild.roles, name=self.categoryName)
-        print(self.roleForPlayer.__class__)
-        await self.category.set_permissions(self.roleForPlayer, read_messages=True, view_channel=False)
+        await self.category.set_permissions(self.roleForPlayer, read_messages=True, connect=True)
         roleEveryone = discord.utils.get(ctx.guild.roles, name="@everyone")
-        await self.category.set_permissions(roleEveryone, view_channel=False)
+        await self.category.set_permissions(roleEveryone, read_messages=False, connect=False)
+
         self.textChannel = await ctx.guild.create_text_channel(name="Partie", category=self.category)
         print("Text channel created")
         self.voiceChannel = await ctx.guild.create_voice_channel(name="Village", category=self.category)
@@ -392,7 +407,7 @@ class LG:
         self.msgToDelete.append(await ctx.message.channel.send("Déplacement des joueurs ..."))
 
         for member in ctx.author.voice.channel.members:
-            await member.add_roles(self.roleForPlayer, "Début de partie.")
+            await member.add_roles(self.roleForPlayer, reason="Début de partie.")
             # await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
         print("Game started")
 
@@ -415,16 +430,15 @@ class LG:
 
     async def endGame(self, ctx):
         print("Ending game ...")
-        ctx.guild.remove_roles(self.roleForPlayer, "Fin de partie.")
-
         for member in self.voiceChannel.members:
             await member.move_to(channel=self.lastVoiceChannel, reason="Fin de partie.")
         await self.deleteCategory(ctx=ctx, reason="Fin de partie.")
+        await self.deleteRole(ctx=ctx, reason="Fin de partie.")
         print("Game ended")
         await self.delete()
 
     async def playGame(self, ctx):
-        """print(len(self.playersAndRoles))
+        print(len(self.playersAndRoles))
         for player in self.playersAndRoles:
             await player.user.send("Vous êtes " + player.firstRole + ", attendez votre tour.")
             print(player.user.name + " : " + player.firstRole)
@@ -444,9 +458,7 @@ class LG:
             print(player.user.name + " : " + player.lastRole)
         for deck in self.centralDeck:
             print(deck.user + " : " + deck.lastRole)
-        await self.letVote()"""
-
-        await asyncio.sleep(30)
+        await self.letVote()
         await self.endGame(ctx=ctx)
 
     async def letVote(self):
@@ -495,6 +507,13 @@ class LG:
                 for chan in category.channels:
                     await chan.delete()
                 await category.delete(reason=reason)
+        print("Deleted all category.")
+
+    async def deleteRole(self, ctx, reason="No reason available"):
+        for role in ctx.guild.roles:
+            if role.name == self.categoryName:
+                await role.delete(reason=reason)
+        print("Deleted all roles.")
 
     async def getRoleFromEmoji(self, ctx, reactions):
         if reactions.count > 1:
@@ -529,7 +548,7 @@ async def lg(ctx, val=""):
         elif val == "create" or val == "c":
             if lgGame.get(ctx.guild.name) is None:
                 lgGame[ctx.guild.name] = LG()
-            await lgGame[ctx.guild.name].creatingGame(ctx)
+            await lgGame[ctx.guild.name].creatingGame(ctx=ctx)
 
         elif val == "val" or val == "v":
             if lgGame.get(ctx.guild.name) is not None:

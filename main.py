@@ -1,6 +1,5 @@
 from music import *
 from Werewolf.gameWerwolf import *
-from TOKEN import *
 
 
 # =-=-=-= BOT COMMANDS =-=-=-= #
