@@ -364,6 +364,7 @@ class LG:
         await self.createGameSpace(ctx=ctx)
 
         # =-=-=-= MOVING PLAYERS =-=-=-= #
+        await self.movePlayer(ctx=ctx)
 
         self.msgToDelete.append(await ctx.message.channel.send("Début de la partie."))
 
@@ -486,27 +487,54 @@ class LG:
         return votes
 
     async def applyVote(self, votes):
+        # Get all the votes on each players. None vote (No valid vote done) will be destroy.
         voteCount = {vote: 0 for vote in self.getMembersName()}
-        voteCount[None] = -len(self.players) - 10
         for vote in votes.values():
             voteCount[vote] += 1
 
+        if voteCount[None] != 0:
+            await self.textChannel.send(
+                "Attention, des joueurs n'ont pas voté / ont mal écrit, les votes peuvent être faussés.")
+        del voteCount[None]
+
         playerOrder = sorted(voteCount.items(), key=lambda x: x[1], reverse=True)
         print(playerOrder)
-        for i in range(len(self.players)):
-            player = self.getMemberFromName(name=playerOrder[i][0])
-            print("player :", player)
-            isDead = await player.isDead(channel=self.textChannel)
-            if isDead:
-                await player.death(channel=self.textChannel)
-                break
+        if playerOrder[0][1] == 0:  # Nobody vote
+            await self.textChannel.send("Partie non valide, personne n'a voter.")
+        elif playerOrder[0][1] == 1:  # People think nobody is a werewolf
+            await self.textChannel.send("Le village pense qu'il n'y a pas de loups-garou ? Vérification ...")
+            werewolves = []
+            for player in self.playersAndRoles:
+                if player.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
+                    werewolves.append(str(player.user.name) + "est un " + str(player.lastRole))
+            if len(werewolves) == 0:
+                await self.textChannel.send("Le village a raison, il n'y a pas de loups-garou parmis eux.")
+                await self.textChannel.send("\n\n *LES VILLAGEOIS ONT GAGNÉ.*")
+            else:
+                await self.textChannel.send("Malheuresement, ```" + ", ".join(werewolves) + ".")
+                await self.textChannel.send("\n\n *LES LOUPS-GAROU ONT GAGNÉ.*")
+
+        else:  # Classic vote
+            print("TODO")
+            self.textChannel.send("TODO : NOT DONE YET, BASICS VOTE.")
+            for i in range(len(self.players)):
+                player = self.getMemberFromName(name=playerOrder[i][0])
+                print("player :", player)
+                isDead = await player.isDead(channel=self.textChannel)
+                if isDead:
+                    await player.death(channel=self.textChannel)
+                    break
 
     async def deleteCategory(self, ctx, reason="No reason available"):
         for category in ctx.guild.categories:
             if category.name == self.categoryName:
-                for chan in category.channels:
-                    await chan.delete()
-                await category.delete(reason=reason)
+                try:
+                    for chan in category.channels:
+                        await chan.delete()
+                    await category.delete(reason=reason)
+                except discord.errors.Forbidden:
+                    self.msgToDelete.append(await ctx.message.channel.send(
+                        "Erreur, permission non accordée, la suppression n'est pas complète."))
         print("Deleted all category.")
 
     async def deleteRole(self, ctx, reason="No reason available"):

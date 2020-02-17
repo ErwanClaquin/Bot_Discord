@@ -32,6 +32,6 @@ async def hug(ctx):
 
 
 # =-=-=-= MAIN =-=-=-= #
-bot.loop.create_task(botAlone())
-bot.loop.create_task(endedSong())
+# bot.loop.create_task(botAlone())
+# bot.loop.create_task(endedSong()) # This is for avoiding too much "lag"
 bot.run(TOKEN)
