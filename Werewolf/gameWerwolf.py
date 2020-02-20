@@ -486,6 +486,13 @@ class LG:
                         break
         return votes
 
+    def getWolves(self):
+        w = []
+        for player in self.playersAndRoles:
+            if player.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
+                w.append(str(player.user.name) + "est un " + str(player.lastRole))
+        return w
+
     async def applyVote(self, votes):
         # Get all the votes on each players. None vote (No valid vote done) will be destroy.
         voteCount = {vote: 0 for vote in self.getMembersName()}
@@ -501,29 +508,74 @@ class LG:
         print(playerOrder)
         if playerOrder[0][1] == 0:  # Nobody vote
             await self.textChannel.send("Partie non valide, personne n'a voter.")
+
         elif playerOrder[0][1] == 1:  # People think nobody is a werewolf
             await self.textChannel.send("Le village pense qu'il n'y a pas de loups-garou ? Vérification ...")
-            werewolves = []
-            for player in self.playersAndRoles:
-                if player.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
-                    werewolves.append(str(player.user.name) + "est un " + str(player.lastRole))
+            werewolves = self.getWolves()
             if len(werewolves) == 0:
-                await self.textChannel.send("Le village a raison, il n'y a pas de loups-garou parmis eux.")
-                await self.textChannel.send("\n\n *LES VILLAGEOIS ONT GAGNÉ.*")
+                await self.textChannel.send("Le village a raison, il n'y a pas de loups-garous parmis eux.")
+                await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
             else:
-                await self.textChannel.send("Malheuresement, ```" + ", ".join(werewolves) + ".")
-                await self.textChannel.send("\n\n *LES LOUPS-GAROU ONT GAGNÉ.*")
+                await self.textChannel.send(
+                    "Malheuresement, ```" + ", ".join(werewolves) + "```sont des Loups-Garous.")
+                await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
 
         else:  # Classic vote
+            werewolves = self.getWolves()
             print("TODO")
             self.textChannel.send("TODO : NOT DONE YET, BASICS VOTE.")
+            deaths = []
             for i in range(len(self.players)):
                 player = self.getMemberFromName(name=playerOrder[i][0])
                 print("player :", player)
                 isDead = await player.isDead(channel=self.textChannel)
                 if isDead:
-                    await player.death(channel=self.textChannel)
+                    deaths += await player.death(channel=self.textChannel)
+                    playerEqualVote = [p[0] for p in voteCount if
+                                       p[1] == player[i][1]]  # Get player name with same number of vote against them
+                    for otherPlayer in playerEqualVote:
+                        isDead = await otherPlayer.isDead(channel=self.textChannel)
+                        if isDead:
+                            deaths += await otherPlayer.death(channel=self.textChannel)
                     break
+
+            if len(deaths) == 0:  # No one die
+                if len(werewolves) == 0:  # No Werewolves
+                    await self.textChannel.send("Il n'ya pas eu de mort et il n'y a aucun Loup-Garou !")
+                    await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
+                else:  # Werewolves among players
+                    await self.textChannel.send(
+                        "Il n'y a pas eu de mort mais```" + ", ".join(werewolves) + "```sont des Loups-Garous !")
+                    await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
+
+            elif len(deaths) == 1:
+                if deaths[0].lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
+                    await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
+                elif deaths[0].lastRole in ["Tanneur"]:
+                    await self.textChannel.send("\n\n*LE TANNEUR A GAGNÉ.*")
+                    if len(werewolves) > 0:  # Wolves in game
+                        await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT ÉGALEMENT GAGNÉ.*")
+                else:
+                    if len(werewolves) == 0:
+                        await self.textChannel.send("\n\n*LE VILLAGE A PERDU, IL N'Y AVAIT PAS D'AUTRES LOUPS-GAROUS.*")
+                    else:
+                        await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
+
+            else:  # more than 2 deaths
+                rolesDead = []
+                for dead in deaths:
+                    if dead.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
+                        rolesDead.append("Loup-Garou")
+                    elif dead.lastRole in ["Tanneur"]:
+                        await self.textChannel.send("\n\n*LE TANNEUR A GAGNÉ.*")
+                    else:
+                        rolesDead.append("Villageois")
+                rolesDead = list(dict.fromkeys(rolesDead))
+                if len(rolesDead) > 0:  # Meaning there was a Tanner + other player(s)
+                    if ["Loup-Garou"] in rolesDead:
+                        await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
+                    else:
+                        await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
 
     async def deleteCategory(self, ctx, reason="No reason available"):
         for category in ctx.guild.categories:

@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/gameWerwolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/gameWerwolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581638536450</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="5th Push to the git.&#10;Minor fix about vote ( 0 votes, 1 votes on each player). Still have to do the part with bodyGuard and annoucement about winner.">
+      <created>1581907082133</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581907082133</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -177,16 +184,18 @@
     <MESSAGE value="Second Push to the git.&#10;Checking almost all roles, maybe there is still some bug and errors.&#10;Not done the &quot;vote&quot; part yet." />
     <MESSAGE value="3rd Push to the git.&#10;Vote part done, didn't do the &quot;who win&quot; part.&#10;Try to set role, don't work yet." />
     <MESSAGE value="4th Push to the git.&#10;Roles added to prevent other user to get notifications. (excepted admin, can't do nothing about that.)" />
-    <option name="LAST_COMMIT_MESSAGE" value="4th Push to the git.&#10;Roles added to prevent other user to get notifications. (excepted admin, can't do nothing about that.)" />
+    <MESSAGE value="5th Push to the git.&#10;Minor fix about vote ( 0 votes, 1 votes on each player). Still have to do the part with bodyGuard and annoucement about winner." />
+    <option name="LAST_COMMIT_MESSAGE" value="5th Push to the git.&#10;Minor fix about vote ( 0 votes, 1 votes on each player). Still have to do the part with bodyGuard and annoucement about winner." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581006605900">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006605900" />
-    <state x="967" y="345" key="CommitChangelistDialog2" timestamp="1581638529142">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="725" y="211" key="CommitChangelistDialog2" timestamp="1581907072000">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="725" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1581907072000" />
     <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638529142" />
     <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog" timestamp="1580129769400">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -254,19 +263,20 @@
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1577407838851" />
     <state width="664" height="601" key="SwitcherDM/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580940869943" />
-    <state x="1062" y="427" key="Vcs.Push.Dialog.v2" timestamp="1581638541042">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="797" y="317" key="Vcs.Push.Dialog.v2" timestamp="1581907085111">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="797" y="317" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581907085111" />
     <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638541042" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579812317882">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171864" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579812317882" />
-    <state x="655" y="345" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1581905714408">
+    <state x="655" y="345" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1582162095530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581905714408" />
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582162095530" />
     <state x="-1590" y="1168" width="458" height="275" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298220002" />
     <state x="440" y="150" width="607" height="369" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581634256012" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814056832" />

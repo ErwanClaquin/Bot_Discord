@@ -58,6 +58,7 @@ class Player:
 
     async def death(self, channel):
         await channel.send(self.user.name + " est mort ! C'était un(e) " + self.lastRole)
+        return [self]
 
     def getRoleFromDeck(self, position=""):
         for role in self.centralDeck:
