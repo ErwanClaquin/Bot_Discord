@@ -20,7 +20,7 @@ class Minion(Player):
         if self.user not in ["gauche", "droite", "milieu"]:
             wolfs = self.getWolf()
             if len(wolfs) != 0:
-                await self.user.send("Vous êtes le Sbire. Les loups sont : " + ", ".join(wolfs))
+                await self.user.send("Vous êtes le Sbire. Les loups sont :```" + "``````".join(wolfs) + "```")
             else:
                 await self.user.send("Vous êtes le Sbire. Actuellement, il n'y a aucun loup.")
 

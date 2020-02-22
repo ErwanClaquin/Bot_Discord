@@ -10,8 +10,8 @@ class Diviner(Player):
         if msg.content not in self.getMembersName():
             # Failed to find user
             print("Failed")
-            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                 + ", ".join(self.getMembersName()) + "].")
+            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```"
+                                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
         else:
             # Succeed to find user
@@ -32,11 +32,11 @@ class Diviner(Player):
         if self.user not in ["gauche", "droite", "milieu"]:
 
             await self.user.send(
-                "Vous êtes le Divinateur. Écrivez le nom d'une personne dont vous souhaitez révéler le rôle parmis ["
-                + ", ".join(self.getMembersName()) + "].")
+                "Vous êtes le Divinateur. Écrivez le nom d'une personne dont vous souhaitez révéler le rôle parmis ```"
+                + "``````".join(self.getMembersName()) + "```")
             await self.wait()
             member = self.getMemberFromName(self.choice)
-            member.revealed = True
+            await self.reveal(user=member)
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))

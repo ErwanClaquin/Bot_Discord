@@ -19,8 +19,8 @@ class AlphaWerewolf(Werewolf):
         if msg.content not in self.getMembersNameWithoutWolf():
             # Failed to find user
             print("Failed")
-            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                 + ", ".join(self.getMembersName()) + "].")
+            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```"
+                                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
         else:
             # Succeed to find user
@@ -35,8 +35,8 @@ class AlphaWerewolf(Werewolf):
             playersWithourWolfs = self.getMembersNameWithoutWolf()
             if len(playersWithourWolfs) != 0:
                 await self.user.send(
-                    "Vous êtes le loup Alpha. Sélectionnez un joueur parmis[" + ", ".join(
-                        self.getMembersNameWithoutWolf()) + "] pour le transformer en loup-garou.")
+                    "Vous êtes le loup Alpha. Sélectionnez un joueur parmis :```" + "``````".join(
+                        playersWithourWolfs) + "```pour le transformer en loup-garou.")
                 await self.wait()
                 member = self.getMemberFromName(self.choice)
                 member.revealed = False

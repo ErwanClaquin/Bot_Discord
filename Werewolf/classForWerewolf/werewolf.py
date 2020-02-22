@@ -30,7 +30,7 @@ class Werewolf(Player):
             # Failed to find user
             print("Failed")
             await self.user.send(
-                "Erreur, impossible de trouver la postion visée. Veuillez réessayer parmis [gauche, droite, milieu].")
+                "Erreur, impossible de trouver la postion visée. Veuillez réessayer parmis :```gauche``````droite``````milieu```")
             await self.wait()
         else:
             # Succeed to find user
@@ -46,10 +46,11 @@ class Werewolf(Player):
             wolfs = self.getWolf()
             if len(wolfs) == 0:
                 await self.user.send(
-                    "Vous êtes le seul des loups-Garous. Vous pouvez choisir une carte du deck parmis [gauche, droite, milieu].")
+                    "Vous êtes le seul des loups-Garous. Vous pouvez choisir une carte du deck parmis :```gauche``````droite``````milieu```")
                 await self.wait()
             else:
-                await self.user.send("Vous êtes un des loups-Garous. Les autres loups sont :" + str(", ".join(wolfs)))
+                await self.user.send(
+                    "Vous êtes un des loups-Garous. Les autres loups sont :```" + "``````".join(wolfs) + "```")
 
             await self.getSleepingWolf()
 

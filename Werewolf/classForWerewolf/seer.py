@@ -7,6 +7,7 @@ class Seer(Player):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
         self.state = None
         self.firstChoice = None
+        self.newList = ["gauche", "droite", "milieu"]
 
     async def checkingMessage(self, msg):
         if self.state is None:
@@ -22,8 +23,8 @@ class Seer(Player):
                 self.state = msg.content
                 await msg.author.send("Catégorie choisie : " + msg.content + ".")
                 if msg.content == "joueurs":
-                    await self.user.send("Écrivez le nom d'une personne dont vous souhaitez voir la carte parmis "
-                                         + ", ".join(self.getMembersName()))
+                    await self.user.send("Écrivez le nom d'une personne dont vous souhaitez voir la carte parmis :```"
+                                         + "``````".join(self.getMembersName()) + "```")
                 else:
                     await self.user.send(
                         " Écrivez une position parmis [gauche, droite, milieu] pour voir une des carte.")
@@ -33,8 +34,8 @@ class Seer(Player):
             if msg.content not in self.getMembersName():
                 # Failed to find user
                 print("Failed")
-                await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                     + ", ".join(self.getMembersName()) + "].")
+                await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```"
+                                     + "``````".join(self.getMembersName()) + "```")
                 await self.wait()
             else:
                 # Succeed to find user
@@ -48,7 +49,9 @@ class Seer(Player):
         elif self.state == "deck":
             if self.firstChoice == msg.content:
                 print("Already seen this role.")
-                await self.user.send("Vous avez déjà choisi de regarder ce rôle. Veuillez réessayer")
+                await self.user.send(
+                    "Vous avez déjà choisi de regarder ce rôle. Veuillez réessayer parmis :```" + "``````".join(
+                        self.newList) + "```")
                 await self.wait()
             else:
                 if self.getRoleFromDeck(position=msg.content) is not None:
@@ -57,7 +60,9 @@ class Seer(Player):
                         "Il y a " + self.getRoleFromDeck(position=msg.content).lastRole + " à la position choisie.")
                     if self.firstChoice is None:
                         self.firstChoice = msg.content
-                        await self.user.send("Choisissez une autre position parmis :")
+                        self.newList.remove(self.firstChoice)
+                        await self.user.send(
+                            "Choisissez une autre position parmis :```" + "``````".join(self.newList) + "```")
                         await self.wait()
                     else:
                         print("End of look.")
@@ -70,8 +75,7 @@ class Seer(Player):
         await super().play(members, centralDeck)
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
-                "Vous êtes la voyante. Écrivez ```joueurs``` si vous souhaitez voir une carte d'un joueur" +
-                " ou ```deck``` si vous souhaitez voir deux cartes au centre.")
+                "Vous êtes la voyante. Écrivez :```joueurs```si vous souhaitez voir une carte d'un joueur ou :```deck```si vous souhaitez voir deux cartes au centre.")
             await self.wait()
 
         else:

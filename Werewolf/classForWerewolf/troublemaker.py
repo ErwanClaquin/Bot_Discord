@@ -12,8 +12,8 @@ class Troublemaker(Player):
         if msg.content not in self.getMembersName():
             # Failed to find player
             print("Failed")
-            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                 + ", ".join(self.getMembersName()) + "].")
+            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```"
+                                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
         else:
             if self.firstChoice is None:
@@ -23,8 +23,8 @@ class Troublemaker(Player):
                 self.firstChoice = self.getMemberFromName(name=msg.content)
                 self.newMembers = self.getMembersName().copy()
                 self.newMembers.remove(self.firstChoice.user.name)
-                await self.user.send("Écrivez le nom de l'autre joueur dont vous voulez échanger le rôle parmis " +
-                                     ", ".join(self.newMembers))
+                await self.user.send("Écrivez le nom de l'autre joueur dont vous voulez échanger le rôle parmis :```" +
+                                     "``````".join(self.newMembers) + "```")
                 await self.wait()
             else:
                 # Succeed to find category
@@ -39,8 +39,8 @@ class Troublemaker(Player):
         await super().play(members, centralDeck)
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
-                "Vous êtes la Noiseuse. Écrivez le nom d'un des joueurs dont vous voulez échanger le rôle parmis "
-                + ", ".join(self.getMembersName()))
+                "Vous êtes la Noiseuse. Écrivez le nom d'un des joueurs dont vous voulez échanger le rôle parmis :```"
+                + "``````".join(self.getMembersName()) + "```")
             await self.wait()
             return self.lastRole
 

@@ -124,9 +124,7 @@ class LG:
                         "```css\nLes rôles en verts sont les membres du village.```"
                         "```Markdown\n#Les rôles en bleu dépendent de la partie.```"
                         "```diff\n-Les rôles en rouge sont les loups-garous.```"
-                        "```Fix\n#Les rôles en orange doivent gagner seul.```"
-                ,
-                embed=self.embedPage1)
+                        "```Fix\n#Les rôles en orange doivent gagner seul.```", embed=self.embedPage1)
             self.msgChoiceRole.append(msg1.id)
             self.msgToDelete.append(msg1)
             await self.addRolesOnEmbed(msg1)
@@ -417,15 +415,10 @@ class LG:
             if name in member.user.name:
                 return member
 
-    def getMembersName(self, forDisplay=False):
+    def getMembersName(self):
         listMemberName = []
         for member in self.playersAndRoles:
-            if forDisplay:
-                name = "```" + member.user.name + "```"
-
-            else:
-                name = member.user.name
-            listMemberName.append(name)
+            listMemberName.append(member.user.name)
         random.shuffle(listMemberName)
         return listMemberName
 
@@ -448,11 +441,11 @@ class LG:
             print(deck.user + " : " + deck.firstRole)
         print("\n\n")
         for role in self.rolesOrder:
-            for player in self.playersAndRoles:
+            for player in self.playersAndRoles + self.centralDeck:
                 if player.firstRole == role:
                     await player.play(members=self.playersAndRoles, centralDeck=self.centralDeck)
-                    print(player.user.name, "played role :", player.firstRole)
-                elif player.newRole == "Insomniaque":
+                    print(player.user, "played role :", player.firstRole)
+                elif player.newRole == "Insomniaque":  # Check due to Doppelgänger
                     player.play(members=self.playersAndRoles, centralDeck=self.centralDeck)
 
         for player in self.playersAndRoles:
@@ -464,8 +457,8 @@ class LG:
 
     async def letVote(self):
         mStart = await self.textChannel.send(
-            "Dès maintenant les votes sont pris en compte. Votez parmis :" + "".join(self.getMembersName(
-                forDisplay=True)) + "en écrivant un des pseudos ci-dessus. Évitez de trop spammer si vous ne voulez pas que le décompte soit trop long.")
+            "Dès maintenant les votes sont pris en compte. Votez parmis :```" + "``````".join(self.getMembersName()) +
+            "```en écrivant un des pseudos ci-dessus. Évitez de trop spammer si vous ne voulez pas que le décompte soit trop long.")
         await asyncio.sleep(7)
         await self.textChannel.send("Plus qu'une minute.")
         await asyncio.sleep(6)
@@ -507,7 +500,7 @@ class LG:
         playerOrder = sorted(voteCount.items(), key=lambda x: x[1], reverse=True)
         print(playerOrder)
         if playerOrder[0][1] == 0:  # Nobody vote
-            await self.textChannel.send("Partie non valide, personne n'a voter.")
+            await self.textChannel.send("Partie non valide, personne n'a voté.")
 
         elif playerOrder[0][1] == 1:  # People think nobody is a werewolf
             await self.textChannel.send("Le village pense qu'il n'y a pas de loups-garou ? Vérification ...")

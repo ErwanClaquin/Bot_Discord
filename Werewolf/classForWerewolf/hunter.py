@@ -6,14 +6,14 @@ class Hunter(Player):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
 
-    async def on_death(self, members, channel):
+    async def death(self, channel, members):
         deadPlayer = []
-        selfdead = await super().on_death(members=members, channel=channel)
+        selfdead = await super().death(members=members, channel=channel)
         if selfdead is not None:
             deadPlayer.append(selfdead)
         else:
             await self.user.send(
-                "La majoritée vous a visé ! Vengez-vous parmis " + ", ".join(self.getMembersName()) + ".")
+                "La majoritée vous a visé ! Vengez-vous parmis :```" + "``````".join(self.getMembersName()) + "```")
             await self.wait()
             member = await self.getMemberFromName(name=self.choice)
             dead = member.on_death(members=members)
@@ -28,8 +28,8 @@ class Hunter(Player):
         if msg.content not in self.getMembersName():
             # Failed to find user
             print("Failed")
-            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                 + ", ".join(self.getMembersName()) + "].")
+            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```"
+                                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
         else:
             # Succeed to find user

@@ -14,8 +14,8 @@ class GoshtHunter(Player):
             if msg.content not in self.getMembersName():
                 # Failed to find user
                 print("Failed")
-                await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                     + ", ".join(self.getMembersName()) + "].")
+                await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```"
+                                     + "``````".join(self.getMembersName()) + "```")
                 await self.wait()
             else:
                 # Succeed to find user
@@ -35,9 +35,9 @@ class GoshtHunter(Player):
                 self.state = "SecondLook"
                 self.newChoice = self.getMembersName().copy()
                 self.newChoice.remove(self.getMemberFromName(self.choice).user.name)
-                await self.user.send("Écrivez le nom d'une personne dont vous souhaitez observer la carte parmis ["
-                                     + ", ".join(self.newChoice) +
-                                     "]. Vous rejoindrez le camp d'un loup, d'un vampire ou d'un tanneur si vous le trouvez.")
+                await self.user.send("Écrivez le nom d'une personne dont vous souhaitez observer la carte parmis ```"
+                                     + "``````".join(self.newChoice) +
+                                     "```Vous rejoindrez le camp d'un loup, d'un vampire ou d'un tanneur si vous le trouvez.")
                 await self.wait()
 
             else:
@@ -49,8 +49,8 @@ class GoshtHunter(Player):
             if msg.content not in self.getMembersName():
                 # Failed to find user
                 print("Failed")
-                await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                     + ", ".join(self.newChoice) + "].")
+                await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ```"
+                                     + "``````".join(self.newChoice) + "```")
                 await self.wait()
             else:
                 # Succeed to find user
@@ -63,9 +63,9 @@ class GoshtHunter(Player):
         if self.user not in ["gauche", "droite", "milieu"]:
 
             await self.user.send(
-                "Vous êtes le chasseur de fantômes. Écrivez le nom d'une personne dont vous souhaitez observer la carte parmis ["
-                + ", ".join(self.getMembersName()) +
-                "]. Vous rejoindrez le camp d'un loup, d'un vampire ou d'un tanneur si vous le trouvez.")
+                "Vous êtes le chasseur de fantômes. Écrivez le nom d'une personne dont vous souhaitez observer la carte parmis ```"
+                + "``````".join(self.getMembersName()) +
+                "```Vous rejoindrez le camp d'un loup, d'un vampire ou d'un tanneur si vous le trouvez.")
             await self.wait()
             if self.choice.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane"]:
                 await self.user.send("Vous vous transformez donc en Loup-Garou.")
@@ -75,7 +75,7 @@ class GoshtHunter(Player):
                 self.lastRole = "Tanneur"
             else:
                 await self.user.send(
-                    "Souhaitez vous regarder un deuxième rôles ? Répondez par ```Oui``` ou par ```Non```")
+                    "Souhaitez vous regarder un deuxième rôle ? Répondez par ```Oui``` ou par ```Non```")
                 await self.wait()
 
         else:

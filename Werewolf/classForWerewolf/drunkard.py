@@ -10,8 +10,8 @@ class Drunkard(Player):
         if msg.content not in ["gauche", "droite", "milieu"]:
             # Failed to find user
             print("Failed")
-            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                 + ", ".join(self.getMembersName()) + "].")
+            await self.user.send(
+                "Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```gauche``````droite``````milieu```")
             await self.wait()
         else:
             # Succeed to find user
@@ -23,7 +23,7 @@ class Drunkard(Player):
         await super().play(members, centralDeck)
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
-                "Vous êtes le Soûlard. Écrivez le nom d'une personne dont vous souhaitez copier la carte parmis [gauche, droite, milieu].")
+                "Vous êtes le Soûlard. Écrivez le nom d'une personne dont vous souhaitez copier la carte parmis :```gauche``````droite``````milieu```")
             await self.wait()
             deck = self.getRoleFromDeck(self.choice)
             saveRole = self.lastRole

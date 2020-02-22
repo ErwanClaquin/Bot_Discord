@@ -21,7 +21,7 @@ class BeginnerSeer(Player):
 
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
-                "Vous êtes l'apprentie voyante. Écrivez une position parmis [gauche, droite, milieu] pour voir une des carte.")
+                "Vous êtes l'apprentie voyante. Écrivez une position parmis :```gauche``````droite``````milieu```pour voir une des cartes.")
             await self.wait()
 
         else:

@@ -12,8 +12,8 @@ class Doppelganger(Player):
         if msg.content not in self.getMembersName():
             # Failed to find user
             print("Failed")
-            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis ["
-                                 + ", ".join(self.getMembersName()) + "].")
+            await self.user.send("Erreur, impossible de trouver la personne visée. Veuillez réessayer parmis :```"
+                                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
         else:
             # Succeed to find user
@@ -26,8 +26,8 @@ class Doppelganger(Player):
         if self.user not in ["gauche", "droite", "milieu"]:
             if self.newRole != "Insomniaque":
                 await self.user.send(
-                    "Vous êtes le Doppelgänger. Écrivez le nom d'une personne dont vous souhaitez copier la carte parmis "
-                    + ", ".join(self.getMembersName()))
+                    "Vous êtes le Doppelgänger. Écrivez le nom d'une personne dont vous souhaitez copier la carte parmis :```"
+                    + "``````".join(self.getMembersName()) + "```")
 
                 await self.wait()
                 member = self.getMemberFromName(self.choice)

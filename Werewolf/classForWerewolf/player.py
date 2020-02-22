@@ -56,7 +56,7 @@ class Player:
             await channel.send(self.user.name + " a été protégé. Il ne meurt donc pas.")
         return not self.protected
 
-    async def death(self, channel):
+    async def death(self, channel, members):
         await channel.send(self.user.name + " est mort ! C'était un(e) " + self.lastRole)
         return [self]
 
