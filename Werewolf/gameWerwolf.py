@@ -39,6 +39,7 @@ class LG:
         self.voiceChannel = None
         self.textChannel = None
         self.roleForPlayer = None
+        self.courseOfTheGame = ["Voici le déroulé de la partie :"]
 
         # =-=-=-= EMBEDS =-=-=-= #
         self.embedPage1 = Embed(title="Choix de rôles numéro 1")
@@ -115,6 +116,7 @@ class LG:
         self.voiceChannel = None
         self.textChannel = None
         self.roleForPlayer = None
+        self.courseOfTheGame = ["Voici le déroulé de la partie :"]
 
     async def creatingGame(self, ctx):
         if self.progression == "":
@@ -377,8 +379,6 @@ class LG:
         self.roleForPlayer = discord.utils.get(ctx.guild.roles, name=self.categoryName)
         print("Role created.")
         member = await ctx.guild.fetch_member(bot.user.id)
-        print(self.roleForPlayer.__class__)
-        print(member.__class__)
         await member.add_roles(self.roleForPlayer, reason="Début de partie.")
 
     async def removeCategory(self, ctx):
@@ -407,7 +407,7 @@ class LG:
 
         for member in ctx.author.voice.channel.members:
             await member.add_roles(self.roleForPlayer, reason="Début de partie.")
-            # await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
+            await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
         print("Game started")
 
     def getMemberFromName(self, name):
@@ -434,7 +434,7 @@ class LG:
     async def playGame(self, ctx):
         print(len(self.playersAndRoles))
         for player in self.playersAndRoles:
-            await player.user.send("Vous êtes " + player.firstRole + ", attendez votre tour.")
+            await player.user.send("Vous êtes " + player.firstRole + ", attendez votre tour pour plus d'informations.")
             print(player.user.name + " : " + player.firstRole)
         print(len(self.centralDeck))
         for deck in self.centralDeck:
@@ -442,11 +442,10 @@ class LG:
         print("\n\n")
         for role in self.rolesOrder:
             for player in self.playersAndRoles + self.centralDeck:
-                if player.firstRole == role:
-                    await player.play(members=self.playersAndRoles, centralDeck=self.centralDeck)
+                if player.firstRole == role or player.newRole == "Insomniaque":
+                    await player.play(members=self.playersAndRoles, centralDeck=self.centralDeck,
+                                      courseOfTheGame=self.courseOfTheGame)
                     print(player.user, "played role :", player.firstRole)
-                elif player.newRole == "Insomniaque":  # Check due to Doppelgänger
-                    player.play(members=self.playersAndRoles, centralDeck=self.centralDeck)
 
         for player in self.playersAndRoles:
             print(player.user.name + " : " + player.lastRole)
@@ -459,14 +458,16 @@ class LG:
         mStart = await self.textChannel.send(
             "Dès maintenant les votes sont pris en compte. Votez parmis :```" + "``````".join(self.getMembersName()) +
             "```en écrivant un des pseudos ci-dessus. Évitez de trop spammer si vous ne voulez pas que le décompte soit trop long.")
-        await asyncio.sleep(7)
+        await asyncio.sleep(10)
         await self.textChannel.send("Plus qu'une minute.")
-        await asyncio.sleep(6)
+        await asyncio.sleep(10)
         mEnd = await self.textChannel.send("Le décompte est terminé, obtention des votes ...")
         votes = await self.getVote(msgStart=mStart, msgEnd=mEnd)
         await self.applyVote(votes=votes)
+        print("display course of the game...")
+        await self.displayCourseOfTheGame()
         await self.textChannel.send("Fin de la partie. Suppression du channel dans 1 minute.")
-        await asyncio.sleep(60)
+        await asyncio.sleep(20)
 
     async def getVote(self, msgStart, msgEnd):
         votes = {player: None for player in self.getMembersName()}
@@ -479,6 +480,16 @@ class LG:
                         break
         return votes
 
+    async def displayCourseOfTheGame(self):
+        course = ""
+        for message in self.courseOfTheGame:
+            if len(course + message) >= 2000:  # Limit by discord
+                await self.textChannel.send(course)
+                course = ""
+            course += message
+        if course != "":
+            await self.textChannel.send(course)
+
     def getWolves(self):
         w = []
         for player in self.playersAndRoles:
@@ -489,6 +500,7 @@ class LG:
     async def applyVote(self, votes):
         # Get all the votes on each players. None vote (No valid vote done) will be destroy.
         voteCount = {vote: 0 for vote in self.getMembersName()}
+        voteCount[None] = 0
         for vote in votes.values():
             voteCount[vote] += 1
 
@@ -516,20 +528,21 @@ class LG:
         else:  # Classic vote
             werewolves = self.getWolves()
             print("TODO")
-            self.textChannel.send("TODO : NOT DONE YET, BASICS VOTE.")
             deaths = []
             for i in range(len(self.players)):
                 player = self.getMemberFromName(name=playerOrder[i][0])
                 print("player :", player)
                 isDead = await player.isDead(channel=self.textChannel)
                 if isDead:
-                    deaths += await player.death(channel=self.textChannel)
+                    print(await player.death(channel=self.textChannel, members=self.players))
+                    deaths += await player.death(channel=self.textChannel, members=self.players)
                     playerEqualVote = [p[0] for p in voteCount if
-                                       p[1] == player[i][1]]  # Get player name with same number of vote against them
+                                       p[1] == playerOrder[i][
+                                           1]]  # Get player name with same number of vote against them
                     for otherPlayer in playerEqualVote:
                         isDead = await otherPlayer.isDead(channel=self.textChannel)
                         if isDead:
-                            deaths += await otherPlayer.death(channel=self.textChannel)
+                            deaths += await otherPlayer.death(channel=self.textChannel, members=self.players)
                     break
 
             if len(deaths) == 0:  # No one die

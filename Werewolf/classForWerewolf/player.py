@@ -15,11 +15,13 @@ class Player:
         self.choice = None
         self.protected = False
         self.revealed = False
+        self.courseOfTheGame = ""
 
-    async def play(self, members, centralDeck):
+    async def play(self, members, centralDeck, courseOfTheGame):
         print(self.user, " : ", self.firstRole)
         self.members = members
         self.centralDeck = centralDeck
+        self.courseOfTheGame = courseOfTheGame
 
     def getMembersName(self):
         listMemberName = []

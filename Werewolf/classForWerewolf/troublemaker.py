@@ -16,8 +16,8 @@ class Troublemaker(Player):
                                  + "``````".join(self.getMembersName()) + "```")
             await self.wait()
         else:
-            if self.firstChoice is None:
-                # Succeed to find category
+            if self.firstChoice is None:  # First choice
+                # Succeed to find people
                 print("Succeed, first choice")
                 await msg.author.send("Le premier joueur est : " + msg.content + ".")
                 self.firstChoice = self.getMemberFromName(name=msg.content)
@@ -26,17 +26,20 @@ class Troublemaker(Player):
                 await self.user.send("Écrivez le nom de l'autre joueur dont vous voulez échanger le rôle parmis :```" +
                                      "``````".join(self.newMembers) + "```")
                 await self.wait()
-            else:
-                # Succeed to find category
+            else:  # Second choice
+                # Succeed to find people
                 print("Succeed, second choice")
                 await msg.author.send("Le deuxième joueur est : " + msg.content + ".")
-                user = self.getMemberFromName(name=msg.content)
-                saveRole = user.lastRole
-                user.lastRole = self.firstChoice.lastRole
+                player = self.getMemberFromName(name=msg.content)
+                self.courseOfTheGame += ["```css\n" + self.user.name + " était la Noiseuse et a volé " +
+                                         self.firstChoice.user.name + " qui était un(e) " + self.firstChoice.lastRole +
+                                         " avec " + player.user.name + " qui était un(e) " + player.lastRole + ".```"]
+                saveRole = player.lastRole
+                player.lastRole = self.firstChoice.lastRole
                 self.firstChoice.lastRole = saveRole
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
                 "Vous êtes la Noiseuse. Écrivez le nom d'un des joueurs dont vous voulez échanger le rôle parmis :```"
@@ -46,3 +49,5 @@ class Troublemaker(Player):
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))
+            self.courseOfTheGame += ["```css\nLa Noiseuse était à/au " + self.user +
+                                     ", le rôle n'a donc pas été joué.```"]

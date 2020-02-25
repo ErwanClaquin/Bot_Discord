@@ -42,9 +42,11 @@ class Seer(Player):
                 print("Succeed")
                 self.choice = msg.content
                 await msg.author.send("Joueur choisi : " + self.choice + ".")
-                member = self.getMemberFromName(self.choice)
-                await self.user.send(member.user.name + " est un(e) " + member.lastRole)
-                print("Member", member.user.name, "is a ", member.lastRole)
+                player = self.getMemberFromName(self.choice)
+                await self.user.send(player.user.name + " est un(e) " + player.lastRole)
+                self.courseOfTheGame += ["```css\n" + self.user.name + " était la sorcière et a observé " +
+                                         player.user.name + " qui était un(e) " + player.lastRole + ".```"]
+                print("Member", player.user.name, "is a ", player.lastRole)
 
         elif self.state == "deck":
             if self.firstChoice == msg.content:
@@ -65,14 +67,19 @@ class Seer(Player):
                             "Choisissez une autre position parmis :```" + "``````".join(self.newList) + "```")
                         await self.wait()
                     else:
+                        self.courseOfTheGame += ["```css\n" + self.user.name + " était la sorcière et a observé à/au " +
+                                                 self.firstChoice + " où il y avait un(e) " +
+                                                 self.getRoleFromDeck(position=self.firstChoice) + " ainsi qu'à/au" +
+                                                 msg.content + " où il y avait un(e)" +
+                                                 self.getRoleFromDeck(position=self.firstChoice) + ".```"]
                         print("End of look.")
                 else:
                     print("Failed")
                     await self.user.send("Erreur, impossible de trouver le rôle visé. Veuillez réessayer.")
                     await self.wait()
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
                 "Vous êtes la voyante. Écrivez :```joueurs```si vous souhaitez voir une carte d'un joueur ou :```deck```si vous souhaitez voir deux cartes au centre.")
@@ -80,3 +87,5 @@ class Seer(Player):
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))
+            self.courseOfTheGame += ["```css\nLa Sorcière était à/au " + self.user +
+                                     ", le rôle n'a donc pas été joué.```"]

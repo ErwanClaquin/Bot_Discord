@@ -29,8 +29,8 @@ class ShamanWerewolf(Werewolf):
             self.choice = msg.content
             await msg.author.send("Joueur choisi : " + self.choice + ".")
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             self.playersWithoutWolfs = self.getMembersNameWithoutWolf()
             if len(self.playersWithoutWolfs) != 0:
@@ -40,6 +40,8 @@ class ShamanWerewolf(Werewolf):
                 await self.wait()
                 member = self.getMemberFromName(self.choice)
                 await self.user.send(member.user.name + " est un(e) " + member.lastRole)
+                self.courseOfTheGame += ["```diff\n-" + self.user.name + " a observé " +
+                                         member.user.name + " qui était un(e)" + member.lastRole + ".```"]
                 print("Member", member.user.name, "is a ", member.lastRole)
                 return self.lastRole
             else:

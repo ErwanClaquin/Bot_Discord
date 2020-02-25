@@ -16,12 +16,9 @@ class Hunter(Player):
                 "La majoritée vous a visé ! Vengez-vous parmis :```" + "``````".join(self.getMembersName()) + "```")
             await self.wait()
             member = await self.getMemberFromName(name=self.choice)
-            dead = member.on_death(members=members)
-            if dead is not None:
-                deadPlayer.append(dead)
-        if len(deadPlayer) == 0:
-            return None
-        else:
+            if member.isDead(channel=channel):
+                deadPlayer += member.death(channel=channel, members=members)
+            deadPlayer += self
             return deadPlayer
 
     async def checkingMessage(self, msg):
@@ -37,10 +34,11 @@ class Hunter(Player):
             self.choice = msg.content
             await msg.author.send("Joueur choisi : " + self.choice + ".")
 
-    async def play(self, members, centralDeck):
-        await super().play(members=members, centralDeck=centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
-            await self.user.send(
-                "Vous êtes le chasseur. Vous pourrez tuer quelqu'un à votre mort.")
+            await self.user.send("Vous êtes le chasseur. Vous pourrez tuer quelqu'un à votre mort.")
+            self.courseOfTheGame += ["```css\n" + self.user.name + " était le Chasseur.```"]
+
         else:
-            await asyncio.sleep(random.randint(a=4, b=7))
+            self.courseOfTheGame += ["```css\nLe Chasseur était à/au " + self.user + ".```"]

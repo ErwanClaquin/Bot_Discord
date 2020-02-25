@@ -5,15 +5,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/alphaWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/alphaWerewolf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/beginnerSeer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/beginnerSeer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/bodyGuard.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/bodyGuard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/diviner.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/diviner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/doppelganger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/doppelganger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/drunkard.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/drunkard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/freemasson.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/freemasson.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/goshtHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/goshtHunter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/hunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/hunter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/insomniac.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/insomniac.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/minion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/minion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/seer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/seer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/shamanWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/shamanWerewolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/sleepingWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/sleepingWerewolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/tanner.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/tanner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/thief.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/thief.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/troublemaker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/troublemaker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Werewolf/classForWerewolf/werewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Werewolf/classForWerewolf/werewolf.py" afterDir="false" />
@@ -194,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582166972117</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="7th Push to the git.&#10;Prevent display pseudo bug due to discord special action (like italics with *name*). Still need to test with many players to find errors &amp; have the &quot;hunter&quot; role to add.">
+      <created>1582332066351</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1582332066351</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -207,53 +219,54 @@
     <MESSAGE value="4th Push to the git.&#10;Roles added to prevent other user to get notifications. (excepted admin, can't do nothing about that.)" />
     <MESSAGE value="5th Push to the git.&#10;Minor fix about vote ( 0 votes, 1 votes on each player). Still have to do the part with bodyGuard and annoucement about winner." />
     <MESSAGE value="6th Push to the git.&#10;All the vote part has been done. Need to test with many players to find errors. Still have the &quot;hunter&quot; role to add." />
-    <option name="LAST_COMMIT_MESSAGE" value="6th Push to the git.&#10;All the vote part has been done. Need to test with many players to find errors. Still have the &quot;hunter&quot; role to add." />
+    <MESSAGE value="7th Push to the git.&#10;Prevent display pseudo bug due to discord special action (like italics with *name*). Still need to test with many players to find errors &amp; have the &quot;hunter&quot; role to add." />
+    <option name="LAST_COMMIT_MESSAGE" value="7th Push to the git.&#10;Prevent display pseudo bug due to discord special action (like italics with *name*). Still need to test with many players to find errors &amp; have the &quot;hunter&quot; role to add." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581006605900">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006605900" />
-    <state x="715" y="211" key="CommitChangelistDialog2" timestamp="1582166962341">
+    <state x="715" y="211" key="CommitChangelistDialog2" timestamp="1582332056498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="715" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582166962341" />
+    <state x="715" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582332056498" />
     <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638529142" />
     <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog" timestamp="1580129769400">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580129769400" />
-    <state width="936" height="260" key="GridCell.Tab.0.bottom" timestamp="1581821675954">
+    <state width="1899" height="260" key="GridCell.Tab.0.bottom" timestamp="1582393983592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581821675954" />
+    <state width="1899" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
     <state width="1899" height="152" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
     <state width="2539" height="371" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638663381" />
     <state width="2539" height="274" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="936" height="260" key="GridCell.Tab.0.center" timestamp="1581821675954">
+    <state width="1899" height="260" key="GridCell.Tab.0.center" timestamp="1582393983592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581821675954" />
+    <state width="1899" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
     <state width="1899" height="152" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
     <state width="2539" height="371" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638663381" />
     <state width="2539" height="274" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.center/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="936" height="260" key="GridCell.Tab.0.left" timestamp="1581821675954">
+    <state width="1899" height="260" key="GridCell.Tab.0.left" timestamp="1582393983592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581821675954" />
+    <state width="1899" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
     <state width="1899" height="152" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
     <state width="2539" height="371" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638663381" />
     <state width="2539" height="274" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.left/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="936" height="260" key="GridCell.Tab.0.right" timestamp="1581821675954">
+    <state width="1899" height="260" key="GridCell.Tab.0.right" timestamp="1582393983592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581821675954" />
+    <state width="1899" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
     <state width="1899" height="152" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
     <state width="2539" height="371" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638663381" />
     <state width="2539" height="274" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
@@ -285,22 +298,22 @@
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1577407838851" />
     <state width="664" height="601" key="SwitcherDM/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580940869943" />
-    <state x="797" y="317" key="Vcs.Push.Dialog.v2" timestamp="1582166973885">
+    <state x="797" y="317" key="Vcs.Push.Dialog.v2" timestamp="1582332068988">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="797" y="317" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582166973885" />
+    <state x="797" y="317" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582332068988" />
     <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581638541042" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579812317882">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171864" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579812317882" />
-    <state x="655" y="345" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1582329792072">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="440" y="150" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1582663696023">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582329792072" />
+    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582381644800" />
     <state x="-1590" y="1168" width="458" height="275" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298220002" />
-    <state x="440" y="150" width="607" height="369" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581634256012" />
+    <state x="440" y="150" width="607" height="369" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582663696023" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814056832" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579556565026" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579782939019" />

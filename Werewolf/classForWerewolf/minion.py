@@ -15,14 +15,17 @@ class Minion(Player):
         print("Wolfs are", str(wolfs))
         return wolfs
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             wolfs = self.getWolf()
             if len(wolfs) != 0:
                 await self.user.send("Vous êtes le Sbire. Les loups sont :```" + "``````".join(wolfs) + "```")
+                self.courseOfTheGame += [
+                    "```diff\n-" + self.user.name + " était le Sbire. Il a vu " + "``````".join(wolfs) + "```"]
             else:
                 await self.user.send("Vous êtes le Sbire. Actuellement, il n'y a aucun loup.")
-
+                self.courseOfTheGame += [
+                    "```diff\n-" + self.user.name + " était le Sbire. Il n'a pas vu de Loups-Garous.```"]
         else:
-            await asyncio.sleep(random.randint(a=4, b=7))
+            self.courseOfTheGame += ["```diff\n-Le Sbire était à/au " + self.user + ".```"]

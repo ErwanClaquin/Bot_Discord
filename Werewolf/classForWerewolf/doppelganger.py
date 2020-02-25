@@ -21,8 +21,8 @@ class Doppelganger(Player):
             self.choice = msg.content
             await msg.author.send("Joueur choisi : " + self.choice + ".")
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             if self.newRole != "Insomniaque":
                 await self.user.send(
@@ -32,6 +32,8 @@ class Doppelganger(Player):
                 await self.wait()
                 member = self.getMemberFromName(self.choice)
                 await self.user.send(member.user.name + " était un(e) " + member.firstRole)
+                self.courseOfTheGame += ["```Markdown\n#" + self.user + " était le Doppelgänger et a choisi " +
+                                         self.choice + " qui était un(e) " + member.lastRole + ".```"]
                 print(self.user.name, ":", self.newRole)
                 self.copyPlayer = member.__class__(user=self.user, firstRole=self.firstRole, botRef=self.bot)
                 if self.copyPlayer.__class__ == Insomniac:

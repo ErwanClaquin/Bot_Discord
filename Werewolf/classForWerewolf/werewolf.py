@@ -37,22 +37,29 @@ class Werewolf(Player):
             print("Succeed")
             self.choice = msg.content
             await msg.author.send(
-                "Le rôle de " + self.choice + " est un(e) " + self.getRoleFromDeck(position=self.choice).lastRole + ".")
+                "Le rôle à/au " + self.choice + " est un(e) " + self.getRoleFromDeck(
+                    position=self.choice).lastRole + ".")
+            self.courseOfTheGame += ["```diff\n-" + self.user.name + "était le seul des loups et a observé à/au " +
+                                     self.choice + "ou il y avait un(e) " + self.getRoleFromDeck(position=self.choice).lastRole
+                                     + "```"]
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
 
             wolfs = self.getWolf()
             if len(wolfs) == 0:
-                await self.user.send(
-                    "Vous êtes le seul des loups-Garous. Vous pouvez choisir une carte du deck parmis :```gauche``````droite``````milieu```")
+                await self.user.send("Vous êtes un " + self.firstRole +
+                                     ", et le seul des loups-Garous. Vous pouvez choisir une carte du deck parmis :```gauche``````droite``````milieu```")
                 await self.wait()
+
             else:
-                await self.user.send(
-                    "Vous êtes un des loups-Garous. Les autres loups sont :```" + "``````".join(wolfs) + "```")
+                await self.user.send("Vous êtes un " + self.firstRole + ". Les autres loups sont :```" +
+                                     "``````".join(wolfs) + "```")
+                self.courseOfTheGame += ["```diff\n-" + self.user.name + " était un " + self.firstRole + ".```"]
 
             await self.getSleepingWolf()
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))
+            self.courseOfTheGame += ["```diff\n-Le " + self.firstRole + " était à/au " + self.user + ".```"]

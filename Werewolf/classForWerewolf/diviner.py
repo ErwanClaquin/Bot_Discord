@@ -20,15 +20,17 @@ class Diviner(Player):
             await msg.author.send("Joueur choisi : " + self.choice + ".")
 
     async def reveal(self, user):
-        if user.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Sbire", "Tanneur", "Loup rêveur"]:
+        if user.lastRole not in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Sbire", "Tanneur", "Loup rêveur"]:
             user.revealed = True
             await self.user.send(user.name + " est un " + user.lastRole + ", il sera donc révélé aux autres joueurs.")
         else:
             await self.user.send(
                 user.name + " est un " + user.lastRole + ", il ne sera donc pas révélé aux autres joueurs.")
+        self.courseOfTheGame += ["```css\n" + self.user.name + " était le divinateur, et à vu " + user.name + \
+                                " qui était un(e) " + user.lastRole + ".```"]
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
 
             await self.user.send(
@@ -39,4 +41,6 @@ class Diviner(Player):
             await self.reveal(user=member)
 
         else:
+            self.courseOfTheGame += [
+                "```css\nLe divinateur était à/au " + self.user + ", le rôle n'a donc pas été joué.```"]
             await asyncio.sleep(random.randint(a=4, b=7))

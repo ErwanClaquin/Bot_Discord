@@ -57,21 +57,27 @@ class GoshtHunter(Player):
                 print("Succeed")
                 self.choice = msg.content
                 await msg.author.send("Ce joueur est un(e) " + self.getMemberFromName(self.choice).lastRole + ".")
+                self.courseOfTheGame += ["```Markdown\n#" + self.user.name + " a aussi vu " + self.choice +
+                                         " qui était un(e) " + self.getMemberFromName(self.choice).lastRole + ".```"]
 
-    async def play(self, members, centralDeck):
-        await super().play(members, centralDeck)
+    async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
+
         if self.user not in ["gauche", "droite", "milieu"]:
-
             await self.user.send(
                 "Vous êtes le chasseur de fantômes. Écrivez le nom d'une personne dont vous souhaitez observer la carte parmis ```"
                 + "``````".join(self.getMembersName()) +
                 "```Vous rejoindrez le camp d'un loup, d'un vampire ou d'un tanneur si vous le trouvez.")
             await self.wait()
+            self.courseOfTheGame += ["```Markdown\n#" + self.user + " était le chasseur de fantôme et a vu " +
+                                     self.choice + " qui était un(e) " + self.getMemberFromName(self.choice).lastRole +
+                                     ".```"]
             if self.choice.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane"]:
                 await self.user.send("Vous vous transformez donc en Loup-Garou.")
                 self.lastRole = "Loup-Garou"
             if self.choice.lastRole in ["Tanneur"]:
                 await self.user.send("Vous vous transformez donc en Tanneur.")
+
                 self.lastRole = "Tanneur"
             else:
                 await self.user.send(
@@ -80,3 +86,5 @@ class GoshtHunter(Player):
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))
+            self.courseOfTheGame += ["```css\nLe chasseur de fantôme était à/au " + self.user +
+                                     ", le rôle n'a donc pas été joué.```"]
