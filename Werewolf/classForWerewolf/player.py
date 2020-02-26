@@ -15,7 +15,7 @@ class Player:
         self.choice = None
         self.protected = False
         self.revealed = False
-        self.courseOfTheGame = ""
+        self.courseOfTheGame = list()
 
     async def play(self, members, centralDeck, courseOfTheGame):
         print(self.user, " : ", self.firstRole)
@@ -27,15 +27,13 @@ class Player:
         listMemberName = []
         for member in self.members:
             if member.user is not self.user:
-                name = "```" + member.user.name + "```"
-                listMemberName.append(name)
+                listMemberName.append(member.user.name)
         random.shuffle(listMemberName)
         return listMemberName
 
     def check(self, msg):
         if not is_me(msg):
             if msg.channel.id == self.user.dm_channel.id:
-                print("Message from", msg.author.name + "'s DM")
                 return True
         return False
 

@@ -407,7 +407,7 @@ class LG:
 
         for member in ctx.author.voice.channel.members:
             await member.add_roles(self.roleForPlayer, reason="Début de partie.")
-            await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
+            # TODO : REMOVE THE HASHTAG await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
         print("Game started")
 
     def getMemberFromName(self, name):
@@ -432,21 +432,20 @@ class LG:
         await self.delete()
 
     async def playGame(self, ctx):
-        print(len(self.playersAndRoles))
         for player in self.playersAndRoles:
-            await player.user.send("Vous êtes " + player.firstRole + ", attendez votre tour pour plus d'informations.")
+            await player.user.send("```css\nNOUVELLE PARTIE```Vous êtes " + player.firstRole + ", attendez votre tour pour plus d'informations.")
             print(player.user.name + " : " + player.firstRole)
-        print(len(self.centralDeck))
+        print("\n")
         for deck in self.centralDeck:
             print(deck.user + " : " + deck.firstRole)
-        print("\n\n")
+        print("\n\nSTART :\n")
         for role in self.rolesOrder:
             for player in self.playersAndRoles + self.centralDeck:
                 if player.firstRole == role or player.newRole == "Insomniaque":
                     await player.play(members=self.playersAndRoles, centralDeck=self.centralDeck,
                                       courseOfTheGame=self.courseOfTheGame)
-                    print(player.user, "played role :", player.firstRole)
 
+        print("\n\nEND :\n")
         for player in self.playersAndRoles:
             print(player.user.name + " : " + player.lastRole)
         for deck in self.centralDeck:
@@ -456,8 +455,10 @@ class LG:
 
     async def letVote(self):
         mStart = await self.textChannel.send(
-            "Dès maintenant les votes sont pris en compte. Votez parmis :```" + "``````".join(self.getMembersName()) +
-            "```en écrivant un des pseudos ci-dessus. Évitez de trop spammer si vous ne voulez pas que le décompte soit trop long.")
+            self.roleForPlayer.mention + " \nDès maintenant les votes sont pris en compte. Votez parmis :```" + "``````".join(
+                self.getMembersName()) + "```en écrivant un des pseudos ci-dessus. Évitez de trop spammer si vous ne"
+                                         " voulez pas que le décompte"
+                                         " soit trop long. N'oubliez pas que vous ne pouvez pas voter pour vous même.")
         await asyncio.sleep(10)
         await self.textChannel.send("Plus qu'une minute.")
         await asyncio.sleep(10)
@@ -466,8 +467,8 @@ class LG:
         await self.applyVote(votes=votes)
         print("display course of the game...")
         await self.displayCourseOfTheGame()
-        await self.textChannel.send("Fin de la partie. Suppression du channel dans 1 minute.")
-        await asyncio.sleep(20)
+        await self.textChannel.send("Fin de la partie. Suppression du channel dans 2 minute.")
+        await asyncio.sleep(120)
 
     async def getVote(self, msgStart, msgEnd):
         votes = {player: None for player in self.getMembersName()}
@@ -494,7 +495,7 @@ class LG:
         w = []
         for player in self.playersAndRoles:
             if player.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
-                w.append(str(player.user.name) + "est un " + str(player.lastRole))
+                w.append(str(player.user.name) + " est un " + str(player.lastRole))
         return w
 
     async def applyVote(self, votes):
@@ -522,24 +523,24 @@ class LG:
                 await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
             else:
                 await self.textChannel.send(
-                    "Malheuresement, ```" + ", ".join(werewolves) + "```sont des Loups-Garous.")
+                    "Malheuresement, ```" + ", ".join(werewolves) + "```est/sont des Loups-Garous.")
                 await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
 
         else:  # Classic vote
             werewolves = self.getWolves()
-            print("TODO")
             deaths = []
             for i in range(len(self.players)):
                 player = self.getMemberFromName(name=playerOrder[i][0])
-                print("player :", player)
                 isDead = await player.isDead(channel=self.textChannel)
                 if isDead:
-                    print(await player.death(channel=self.textChannel, members=self.players))
                     deaths += await player.death(channel=self.textChannel, members=self.players)
                     playerEqualVote = [p[0] for p in voteCount if
-                                       p[1] == playerOrder[i][
-                                           1]]  # Get player name with same number of vote against them
+                                       (p[1] == playerOrder[i][
+                                           1] and p[0] != playerOrder[i][
+                                            0])]  # Get player name with same number of vote against them
+                    print("OTHERS PLAYERS : \n")
                     for otherPlayer in playerEqualVote:
+                        print(otherPlayer)
                         isDead = await otherPlayer.isDead(channel=self.textChannel)
                         if isDead:
                             deaths += await otherPlayer.death(channel=self.textChannel, members=self.players)
@@ -551,7 +552,7 @@ class LG:
                     await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
                 else:  # Werewolves among players
                     await self.textChannel.send(
-                        "Il n'y a pas eu de mort mais```" + ", ".join(werewolves) + "```sont des Loups-Garous !")
+                        "Il n'y a pas eu de mort mais```" + ", ".join(werewolves) + "```est/sont des Loups-Garous !")
                     await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
 
             elif len(deaths) == 1:

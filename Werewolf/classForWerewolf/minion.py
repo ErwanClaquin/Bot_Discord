@@ -22,7 +22,7 @@ class Minion(Player):
             if len(wolfs) != 0:
                 await self.user.send("Vous êtes le Sbire. Les loups sont :```" + "``````".join(wolfs) + "```")
                 self.courseOfTheGame += [
-                    "```diff\n-" + self.user.name + " était le Sbire. Il a vu " + "``````".join(wolfs) + "```"]
+                    "```diff\n-" + self.user.name + " était le Sbire. Il a vu " + "``````".join(wolfs) + ".```"]
             else:
                 await self.user.send("Vous êtes le Sbire. Actuellement, il n'y a aucun loup.")
                 self.courseOfTheGame += [

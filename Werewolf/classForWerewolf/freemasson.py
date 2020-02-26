@@ -8,15 +8,20 @@ class Freemason(Player):
 
     async def getFreemason(self):
         freemason = False
+        print("\nSearch an other Freemason\n")
+
         for member in self.members:
-            print(member.lastRole)
-            if member.lastRole is "Franc-Maçon":
+            print("" + str(member.user.name) + " : " + str(member.lastRole))
+            if (member.lastRole == "Franc-Maçon" or member.newRole == "Franc-Maçon") \
+                    and self.user.name != member.user.name:
+                print("found an other Freemason")
                 await self.user.send(member.user.name + " est un autre franc-maçon.")
                 freemason = True
         if not freemason:
             await self.user.send("Il n'y a pas d'autre franc-maçon parmis les joueurs.")
 
     async def play(self, members, centralDeck, courseOfTheGame):
+        await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
             await self.user.send("Vous êtes un Franc-Maçon.")

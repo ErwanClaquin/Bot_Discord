@@ -13,5 +13,4 @@ class Tanner(Player):
             self.courseOfTheGame += ["```Fix\n#" + self.user.name + " était le Tanneur.```"]
 
         else:
-            await asyncio.sleep(random.randint(a=4, b=7))
-            self.courseOfTheGame += ["```Fix\n#Le Tanneur était à/au " + self.user.name + ".```"]
+            self.courseOfTheGame += ["```Fix\n#Le Tanneur était à/au " + self.user + ".```"]
