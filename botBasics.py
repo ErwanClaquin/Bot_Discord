@@ -4,16 +4,6 @@ import discord
 from TOKEN import *
 
 bot = commands.Bot(command_prefix='//')
-
-ydl_opts = {
-    'format': 'bestaudio/best',
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': 'mp3',
-        'preferredquality': '192',
-    }]
-}
-
 lastTextChannel = {}
 
 
@@ -60,21 +50,6 @@ def getAuthor(rawAuthor):
             return authorOutput
 
 
-# =-=-=-= CHECKING FUNCTION =-=-=-= #
-async def particularWords(message, authorOutput):
-    if "maman" in message.content or "mère" in message.content:
-        msg = await message.channel.send("On avait dit pas les mamans " + authorOutput + ".")
-        await msg.delete(delay=2)
-
-    if "@everyone" in message.content or "@here" in message.content:
-        msg = await message.channel.send("Ça t'amuses de mentionner tout le monde " + authorOutput + " ?")
-        await msg.delete(delay=2)
-
-
-def is_me(m):
-    return m.author == bot.user
-
-
 # =-=-=-= BOT EVENT =-=-=-= #
 @bot.event
 async def on_ready():
@@ -87,17 +62,3 @@ async def on_ready():
         await voiceClient.disconnect()
     print("Bot is ready")
     print(bot.voice_clients)
-
-
-""""@bot.event
-async def on_message(message):"""
-"""
-Detect all message send in channel bot can read.
-:return: None
-"""
-"""if not is_me(message):
-    authorOutput = getAuthor(message.author)
-    print(authorOutput, ':', message.content)
-    await particularWords(message, authorOutput)  # Checking everything
-
-await bot.process_commands(message)"""

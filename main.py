@@ -1,5 +1,4 @@
-from music import *
-from Werewolf.gameWerwolf import *
+from gameWerwolf import *
 
 
 # =-=-=-= BOT COMMANDS =-=-=-= #
@@ -20,18 +19,6 @@ async def disconnect(ctx):
             await voiceClient.disconnect()
 
 
-@bot.command()
-async def hug(ctx):
-    sentences = ["Viens donc me faire un câlin",
-                 "Tu te sens seul ? Viens donc te réchauffer auprès de moi",
-                 "J'vais te tenir compagnie un jour",
-                 "T'es à ce point en manque d'amour pour demander ça un bot ?"]
-
-    authorOutput = getAuthor(ctx.message.author)
-    await ctx.message.channel.send(random.choice(sentences) + " " + authorOutput)
-
-
 # =-=-=-= MAIN =-=-=-= #
-# bot.loop.create_task(botAlone())
-# bot.loop.create_task(endedSong()) # This is for avoiding too much "lag"
+bot.loop.create_task(botAlone())
 bot.run(TOKEN)
