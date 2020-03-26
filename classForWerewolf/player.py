@@ -41,7 +41,7 @@ class Player:
         pass
 
     async def wait(self):
-        msg = await self.bot.wait_for('message', check=self.check)
+        msg = await self.bot.wait_for(event='message', check=self.check, timeout=30)
         print("Attempt to find user or role :", msg.content)
         await self.checkingMessage(msg)
         return msg

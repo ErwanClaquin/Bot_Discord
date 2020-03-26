@@ -441,10 +441,14 @@ class LG:
 
     async def letVote(self):
         mStart = await self.textChannel.send(
-            self.roleForPlayer.mention + " \nDès maintenant les votes sont pris en compte. Votez parmis :```" + "``````".join(
-                self.getMembersName()) + "```en écrivant un des pseudos ci-dessus. Évitez de trop spammer si vous ne"
-                                         " voulez pas que le décompte"
-                                         " soit trop long. N'oubliez pas que vous ne pouvez pas voter pour vous même.")
+            self.roleForPlayer.mention + " \nDès maintenant les votes sont pris en compte. Votez parmis :```" +
+            "``````".join(self.getMembersName()) + "```en écrivant un des pseudos ci-dessus en message privé. "
+                                                   "Évitez de trop spammer si vous ne voulez pas que le décompte soit trop long. N'oubliez pas que vous ne"
+                                                   " pouvez pas voter pour vous même.")
+        for player in self.players:
+            await player.send("\n\nVotez ici parmis :```" + "``````".join(self.getMembersName()) +
+                              "```Seul le dernier pseudo valide sera pris en compte.")
+
         await asyncio.sleep(10)
         await self.textChannel.send("Plus qu'une minute.")
         await asyncio.sleep(10)
@@ -452,19 +456,21 @@ class LG:
         votes = await self.getVote(msgStart=mStart, msgEnd=mEnd)
         await self.applyVote(votes=votes)
         await self.displayCourseOfTheGame()
-        await self.textChannel.send("Fin de la partie. Suppression du channel dans 2 minute.")
+        await self.textChannel.send("Fin de la partie. Suppression du channel dans 2 minutes.")
         await asyncio.sleep(120)
 
     async def getVote(self, msgStart, msgEnd):
         votes = {player: None for player in self.getMembersName()}
-        async for msg in self.textChannel.history(limit=None, before=msgEnd.created_at, after=msgStart.created_at):
-            if msg.author.name in self.getMembersName() and msg.content in self.getMembersName() and msg.content != msg.author.name:
-                if votes[msg.author.name] is None:
-                    player = self.getMemberFromName(name=msg.author.name)
-                    player.vote(self.getMemberFromName(name=msg.content))
-                    print(msg.author.name, "voted", msg.content)
-                    votes[msg.author.name] = msg.content
-                    if None not in votes.values():  # Everyone vote, don't need to finish the loop
+
+        for player in self.players:
+            async for msg in player.dm_channel.history(limit=None, before=msgEnd.created_at, after=msgStart.created_at):
+                if msg.author.name in self.getMembersName() and msg.content in self.getMembersName() and msg.content != msg.author.name:
+                    if votes[msg.author.name] is None:
+                        player = self.getMemberFromName(name=msg.author.name)
+                        player.vote(self.getMemberFromName(name=msg.content))
+                        print(msg.author.name, "voted for", msg.content)
+                        self.courseOfTheGame += [msg.author.name + " a voté pour " + msg.content]
+                        votes[msg.author.name] = msg.content
                         break
         return votes
 

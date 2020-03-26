@@ -11,7 +11,7 @@ class Insomniac(Player):
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send("Vous êtes l'Insomniaque. Votre rôle final est un(e) " + self.lastRole)
             self.courseOfTheGame += [
-                "```css\n" + self.user.name + " était l'Insomniaque est s'est réveillé en" + self.lastRole + ".```"]
+                "```css\n" + self.user.name + " était l'Insomniaque est s'est réveillé en " + self.lastRole + ".```"]
 
         else:
             self.courseOfTheGame += [

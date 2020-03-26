@@ -8,7 +8,7 @@ async def helpAll(message):
     Will display all bot commands available
     :return:
     """
-    await message.channel.send("command help all not ready yet")
+    await message.channel.send("command helpAll not ready yet")
 
 
 @bot.command()
