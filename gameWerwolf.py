@@ -465,13 +465,14 @@ class LG:
         for player in self.players:
             async for msg in player.dm_channel.history(limit=None, before=msgEnd.created_at, after=msgStart.created_at):
                 if msg.author.name in self.getMembersName() and msg.content in self.getMembersName() and msg.content != msg.author.name:
-                    if votes[msg.author.name] is None:
-                        player = self.getMemberFromName(name=msg.author.name)
-                        player.vote(self.getMemberFromName(name=msg.content))
-                        print(msg.author.name, "voted for", msg.content)
-                        self.courseOfTheGame += [msg.author.name + " a voté pour " + msg.content]
-                        votes[msg.author.name] = msg.content
-                        break
+                    player = self.getMemberFromName(name=msg.author.name)
+                    player.vote(self.getMemberFromName(name=msg.content))
+                    print(msg.author.name, "voted for", msg.content)
+                    self.courseOfTheGame += [msg.author.name + " a voté pour " + msg.content]
+                    votes[msg.author.name] = msg.content
+                    break
+            if votes[player.name] is None:
+                self.courseOfTheGame += [player.name + " n'a pas voté."]
         return votes
 
     async def applyVote(self, votes):

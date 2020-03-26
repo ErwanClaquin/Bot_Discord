@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="">
+    <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="11th Push to the git.&#10;Added a timeout for player which can't answer.&#10;Change vote in DM to allow fake speech.&#10;Still check to do with multiples deaths.">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/insomniac.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/insomniac.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameWerwolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameWerwolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -241,19 +240,25 @@
     <MESSAGE value="8th Push to the git.&#10;All basics roles have benn created. A course of the game has been added too. Still need lot of test to prevent any errors." />
     <MESSAGE value="9th Push to the git.&#10;Minor bugs resolved on Freemasson, display bug resolved, found that bodyGuard have not been implemented yet. Still bugs to check." />
     <MESSAGE value="10th Push to the git.&#10;Modifying files to have better view and remove all &quot;test&quot; function to keep only essential for the game.&#10;Still check to do with multiples deaths." />
-    <option name="LAST_COMMIT_MESSAGE" value="10th Push to the git.&#10;Modifying files to have better view and remove all &quot;test&quot; function to keep only essential for the game.&#10;Still check to do with multiples deaths." />
+    <MESSAGE value="11th Push to the git.&#10;Added a timeoutStill check to do with multiples deaths." />
+    <MESSAGE value="11th Push to the git.&#10;Added a timeout for player which can't answer.&#10;Change vote in DM to allow fake speech.&#10;Still check to do with multiples deaths." />
+    <option name="LAST_COMMIT_MESSAGE" value="11th Push to the git.&#10;Added a timeout for player which can't answer.&#10;Change vote in DM to allow fake speech.&#10;Still check to do with multiples deaths." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1512" y="362" key="#Notifications" timestamp="1585235873399">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1512" y="362" key="#Notifications/0.0.2560.1400@0.0.2560.1400" timestamp="1585235873399" />
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581006605900">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006605900" />
-    <state x="967" y="345" key="CommitChangelistDialog2" timestamp="1585169516895">
+    <state x="967" y="345" key="CommitChangelistDialog2" timestamp="1585235914073">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="715" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582332056498" />
     <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582752584837" />
-    <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1585169516895" />
+    <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1585235914073" />
     <state x="898" y="615" key="GitRewordDialog" timestamp="1585169568978">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -262,7 +267,7 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580129769400" />
-    <state width="1257" height="148" key="GridCell.Tab.0.bottom" timestamp="1585232840911">
+    <state width="1257" height="148" key="GridCell.Tab.0.bottom" timestamp="1585236922751">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -271,8 +276,8 @@
     <state width="2539" height="274" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1585232840911" />
-    <state width="1257" height="148" key="GridCell.Tab.0.center" timestamp="1585232840911">
+    <state width="1257" height="148" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
+    <state width="1257" height="148" key="GridCell.Tab.0.center" timestamp="1585236922751">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -281,8 +286,8 @@
     <state width="2539" height="274" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.center/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1585232840911" />
-    <state width="1257" height="148" key="GridCell.Tab.0.left" timestamp="1585232840911">
+    <state width="1257" height="148" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
+    <state width="1257" height="148" key="GridCell.Tab.0.left" timestamp="1585236922751">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -291,8 +296,8 @@
     <state width="2539" height="274" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.left/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1585232840911" />
-    <state width="1257" height="148" key="GridCell.Tab.0.right" timestamp="1585232840911">
+    <state width="1257" height="148" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
+    <state width="1257" height="148" key="GridCell.Tab.0.right" timestamp="1585236922751">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -301,7 +306,7 @@
     <state width="2539" height="274" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.right/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1585232840911" />
+    <state width="1257" height="148" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
     <state width="936" height="348" key="GridCell.Tab.1.bottom" timestamp="1577411148293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
