@@ -1,4 +1,5 @@
 from discord import Embed
+from botBasics import *
 # Importing class roles
 from classForWerewolf.alphaWerewolf import *
 from classForWerewolf.beginnerSeer import *
@@ -150,7 +151,7 @@ class LG:
                 msg = await ctx.channel.fetch_message(msgId)
                 for reactions in msg.reactions:
                     await self.getRoleFromEmoji(ctx, reactions)
-            self.players = ctx.author.voice.channel.members
+            self.players = [member for member in ctx.author.voice.channel.members if not member.bot]
 
             # =-=-=-= CHECKING INVALID PARTY =-=-=-= #
             print("TODO : REPLACE HERE BY 3 PLAYERS MIN, JUST DID THAT TO CHECK WHEN I'M ALONE")
@@ -203,7 +204,7 @@ class LG:
         random.shuffle(self.roles)
         self.roles = self.roles[:len(self.players) + 3]
         if self.roles.count("Franc-Maçon") % 2 != 0:  # Only One Freemasson in
-            for i in range(self.roles):
+            for i in range(len(self.roles)):
                 if self.roles[i] == "Franc-Maçon":
                     self.roles[(i + 1) % len(self.roles)] = "Franc-Maçon"
                     random.seed(time.time())
@@ -416,10 +417,36 @@ class LG:
             await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
         print("Game started")
 
+    @staticmethod
+    async def playAudio(guild):
+        for voiceClient in bot.voice_clients:
+            if voiceClient.guild == guild:
+                audioSource = discord.FFmpegPCMAudio("beginPlay.mp3")
+                voiceClient.play(source=audioSource, after=None)
+                print("Start playing ''beginPlay'' ...")
+                while voiceClient.is_playing():
+                    pass
+                print("Payed ''beginPlay''")
+                break
+
+    @staticmethod
+    async def join(ctx):
+        print("Starting connection ...")
+        lastTextChannel[ctx.guild.name] = ctx.message.channel
+        if ctx.author.voice is None:
+            await ctx.message.channel.send("Un utilisateur à besoin d'être connecté")
+        else:
+            channel = ctx.author.voice.channel
+            await channel.connect()
+            print("Connected.")
+
     async def playGame(self, ctx):
+        await asyncio.sleep(1)
+        await self.join(ctx=ctx)
+        await self.playAudio(guild=ctx.guild)
         for player in self.playersAndRoles:
             await player.user.send(
-                "```css\nNOUVELLE PARTIE```Vous êtes " + player.firstRole + ", attendez votre tour pour plus d'informations.")
+                "```diff\n-NOUVELLE PARTIE-```Vous êtes " + player.firstRole + ", attendez votre tour pour plus d'informations.")
             print(player.user.name + " : " + player.firstRole)
         print("\n")
         for deck in self.centralDeck:
@@ -428,8 +455,10 @@ class LG:
         for role in self.rolesOrder:
             for player in self.playersAndRoles + self.centralDeck:
                 if player.firstRole == role or player.newRole == "Insomniaque":
+                    await player.playAudio(guild=ctx.guild, start=True)
                     await player.play(members=self.playersAndRoles, centralDeck=self.centralDeck,
                                       courseOfTheGame=self.courseOfTheGame)
+                    await player.playAudio(guild=ctx.guild, start=False)
 
         print("\n\nEND :\n")
         for player in self.playersAndRoles:
@@ -472,7 +501,7 @@ class LG:
                     votes[msg.author.name] = msg.content
                     break
             if votes[player.name] is None:
-                self.courseOfTheGame += [player.name + " n'a pas voté."]
+                self.courseOfTheGame += ["```" + player.name + " n'a pas voté." + "```"]
         return votes
 
     async def applyVote(self, votes):
@@ -490,7 +519,7 @@ class LG:
         playerOrder = sorted(voteCount.items(), key=lambda x: x[1], reverse=True)
         print(playerOrder)
         if playerOrder[0][1] == 0:  # Nobody vote
-            await self.textChannel.send("Partie non valide, personne n'a voté.")
+            await self.textChannel.send("`Partie non valide`, personne n'a voté.")
 
         elif playerOrder[0][1] == 1:  # People think nobody is a werewolf
             await self.textChannel.send("Le village pense qu'il n'y a pas de loups-garou ? Vérification ...")

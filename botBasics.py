@@ -12,7 +12,6 @@ async def botAlone():  # Will be check each minute
     while not bot.is_closed():
         for voiceClient in bot.voice_clients:
             if len(voiceClient.channel.members) == 1:
-                await voiceClient.channel.send("Le bot, seul, se casse de " + voiceClient.channel.name)
                 await voiceClient.disconnect()
         await asyncio.sleep(10)
 
@@ -57,8 +56,9 @@ async def on_ready():
     After execute bot, will just print in log he's ready
     :return: None
     """
-    await bot.change_presence(activity=discord.Activity(name="les ordres", type=discord.ActivityType.listening))
+    await bot.change_presence(activity=discord.Activity(name="test", type=discord.ActivityType.custom))
+    print("=====\nDiscord CutomActivity don't work yet I think. Nobody will appear.\n=====")
     for voiceClient in bot.voice_clients:
         await voiceClient.disconnect()
     print("Bot is ready")
-    print(bot.voice_clients)
+

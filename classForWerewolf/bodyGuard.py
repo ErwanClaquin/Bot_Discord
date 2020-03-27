@@ -9,6 +9,9 @@ class BodyGuard(Player):
     def vote(self, player):
         player.protected = True
 
+    async def playAudio(self, guild, start=True):
+        pass
+
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:

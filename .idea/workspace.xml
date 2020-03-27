@@ -1,11 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="11th Push to the git.&#10;Added a timeout for player which can't answer.&#10;Change vote in DM to allow fake speech.&#10;Still check to do with multiples deaths.">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/beginPlay.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/AlphaWerewolfDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/AlphaWerewolfEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DivinerDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DivinerEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DoppelgangerDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DoppelgangerEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DrunkardDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DrunkardEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GoshtHunterDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GoshtHunterEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterDesciption.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/SeerDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/SeerEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/ShamanWerewolfDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/ShamanWerewolfEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/ThiefDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/ThiefEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/TroublemakerDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/TroublemakerEnd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/WerewolfDescription.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/WerewolfEnd.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botBasics.py" beforeDir="false" afterPath="$PROJECT_DIR$/botBasics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/alphaWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/alphaWerewolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/bodyGuard.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/bodyGuard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/doppelganger.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/doppelganger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/freemasson.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/freemasson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/insomniac.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/insomniac.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/minion.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/minion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/seer.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/seer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/shamanWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/shamanWerewolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/sleepingWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/sleepingWerewolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/tanner.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/tanner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/werewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/werewolf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameWerwolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameWerwolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_cparser.pxd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_cparser.pxd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.c" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.h" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.pxd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.pxd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.c" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.cp37-win32.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.cp37-win32.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_headers.pxi" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_headers.pxi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.c" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.cp37-win32.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.cp37-win32.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.cp37-win32.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.cp37-win32.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.c" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.cp37-win32.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.cp37-win32.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.c" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.cp37-win32.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.cp37-win32.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.pyx" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.pyx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/abc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/abc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/base_protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/base_protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_proto.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_proto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_reqrep.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_reqrep.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_ws.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_ws.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/connector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/cookiejar.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/cookiejar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/formdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/formdata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/frozenlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/frozenlist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/frozenlist.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/frozenlist.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/hdrs.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/hdrs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_websocket.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_websocket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_writer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/locks.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/locks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/multipart.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/multipart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/payload.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/payload.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/payload_streamer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/payload_streamer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/pytest_plugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/pytest_plugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/resolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/resolver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/signals.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/signals.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/streams.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/streams.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/tcp_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/tcp_helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/test_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/test_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/tracing.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/tracing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/typedefs.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/typedefs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_fileresponse.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_fileresponse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_middlewares.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_routedef.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_routedef.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_runner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_urldispatcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_urldispatcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_ws.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_ws.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.2.5.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.2.5.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.2.5.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.2.5.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.2.5.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.2.5.dist-info/authors.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.2.5.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/abc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/abc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/activity.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/activity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/appinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/appinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/asset.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/asset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/audit_logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/audit_logs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/backoff.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/backoff.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/calls.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/calls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/channel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/channel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/colour.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/colour.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/context_managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/context_managers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/embeds.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/embeds.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/emoji.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/emoji.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/enums.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cog.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/context.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/context.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/converter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cooldowns.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cooldowns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/help.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/tasks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/gateway.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/gateway.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/guild.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/guild.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/invite.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/invite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/iterators.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/iterators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/member.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/member.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/mixins.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/mixins.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/object.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/object.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/opus.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/opus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/raw_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/raw_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/reaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/relationship.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/relationship.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/role.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/role.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/shard.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/shard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/voice_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/voice_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/webhook.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/webhook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/widget.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,18 +208,43 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/classForWerewolf/AudioClasses" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Pycharm\Pycharm_Projects\Bot_Discord\classForWerewolf\AudioClasses" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Pycharm\Pycharm_Projects\Bot_Discord\classForWerewolf" />
       <recent name="E:\Pycharm\Pycharm_Projects\Bot_Discord\Werewolf\classForWerewolf" />
       <recent name="E:\Pycharm\Pycharm_Projects\Bot_Discord\Werewolf\classLG" />
       <recent name="E:\Pycharm\Pycharm_Projects\Bot_Discord" />
       <recent name="E:\Pycharm\Pycharm_Projects\Bot_Discord\Werewolf\class" />
-      <recent name="E:\Pycharm\Pycharm_Projects\Bot_Discord\Werewolf" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="botBasics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bot_Discord" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/botBasics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="gameWerwolf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bot_Discord" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -113,6 +312,7 @@
       <list>
         <item itemvalue="Python.main" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.botBasics" />
         <item itemvalue="Python.gameWerwolf" />
       </list>
     </recent_temporary>
@@ -210,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585169522203</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="12th Push to the git.&#10;Added &quot;player didn't vote&quot; on course of the game.&#10;Still check to do with multiples deaths.">
+      <created>1585236987386</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1585236987386</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,23 +449,28 @@
     <MESSAGE value="10th Push to the git.&#10;Modifying files to have better view and remove all &quot;test&quot; function to keep only essential for the game.&#10;Still check to do with multiples deaths." />
     <MESSAGE value="11th Push to the git.&#10;Added a timeoutStill check to do with multiples deaths." />
     <MESSAGE value="11th Push to the git.&#10;Added a timeout for player which can't answer.&#10;Change vote in DM to allow fake speech.&#10;Still check to do with multiples deaths." />
-    <option name="LAST_COMMIT_MESSAGE" value="11th Push to the git.&#10;Added a timeout for player which can't answer.&#10;Change vote in DM to allow fake speech.&#10;Still check to do with multiples deaths." />
+    <MESSAGE value="12th Push to the git.&#10;Added &quot;player didn't vote&quot; on course of the game.&#10;Still check to do with multiples deaths." />
+    <option name="LAST_COMMIT_MESSAGE" value="12th Push to the git.&#10;Added &quot;player didn't vote&quot; on course of the game.&#10;Still check to do with multiples deaths." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1512" y="362" key="#Notifications" timestamp="1585235873399">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1512" y="362" key="#Notifications/0.0.2560.1400@0.0.2560.1400" timestamp="1585235873399" />
+    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585327552246">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1585327552246" />
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581006605900">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006605900" />
-    <state x="967" y="345" key="CommitChangelistDialog2" timestamp="1585235914073">
+    <state x="967" y="345" key="CommitChangelistDialog2" timestamp="1585236984534">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="715" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582332056498" />
     <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582752584837" />
-    <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1585235914073" />
+    <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1585236984534" />
     <state x="898" y="615" key="GitRewordDialog" timestamp="1585169568978">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -267,7 +479,7 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580129769400" />
-    <state width="1257" height="148" key="GridCell.Tab.0.bottom" timestamp="1585236922751">
+    <state width="1257" height="325" key="GridCell.Tab.0.bottom" timestamp="1585331967554">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -276,8 +488,8 @@
     <state width="2539" height="274" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
-    <state width="1257" height="148" key="GridCell.Tab.0.center" timestamp="1585236922751">
+    <state width="1257" height="325" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1585331967554" />
+    <state width="1257" height="325" key="GridCell.Tab.0.center" timestamp="1585331967554">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -286,8 +498,8 @@
     <state width="2539" height="274" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.center/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
-    <state width="1257" height="148" key="GridCell.Tab.0.left" timestamp="1585236922751">
+    <state width="1257" height="325" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1585331967554" />
+    <state width="1257" height="325" key="GridCell.Tab.0.left" timestamp="1585331967554">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -296,8 +508,8 @@
     <state width="2539" height="274" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.left/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
-    <state width="1257" height="148" key="GridCell.Tab.0.right" timestamp="1585236922751">
+    <state width="1257" height="325" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1585331967554" />
+    <state width="1257" height="325" key="GridCell.Tab.0.right" timestamp="1585331967554">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1899" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
@@ -306,7 +518,7 @@
     <state width="2539" height="274" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
     <state width="2539" height="352" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
     <state width="2539" height="347" key="GridCell.Tab.0.right/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1257" height="148" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1585236922751" />
+    <state width="1257" height="325" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1585331967554" />
     <state width="936" height="348" key="GridCell.Tab.1.bottom" timestamp="1577411148293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -323,29 +535,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="936" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577411148293" />
-    <state x="1229" y="225" key="SettingsEditor" timestamp="1584632728258">
+    <state x="1229" y="225" key="SettingsEditor" timestamp="1585240128731">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="922" y="167" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577402790488" />
     <state x="1229" y="225" key="SettingsEditor/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581282552153" />
-    <state x="1229" y="225" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1584632728258" />
+    <state x="1229" y="225" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1585240128731" />
     <state width="664" height="601" key="SwitcherDM" timestamp="1580940869943">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1577407838851" />
     <state width="664" height="601" key="SwitcherDM/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580940869943" />
-    <state x="1062" y="427" key="Vcs.Push.Dialog.v2" timestamp="1585169524568">
+    <state x="1062" y="427" key="Vcs.Push.Dialog.v2" timestamp="1585236992828">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="797" y="317" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582332068988" />
     <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582752595149" />
-    <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1585169524568" />
+    <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1585236992828" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579812317882">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171864" />
     <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579812317882" />
-    <state x="429" y="178" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1585229999953">
+    <state x="429" y="178" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1585323770542">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582381644800" />
@@ -354,7 +566,7 @@
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814056832" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579556565026" />
     <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579782939019" />
-    <state x="429" y="178" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1585229999953" />
+    <state x="429" y="178" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1585323770542" />
     <state x="304" y="320" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581458811996">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -367,13 +579,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1011" y="260" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1577402601782" />
-    <state x="446" y="238" width="1936" height="989" key="dock-window-1" timestamp="1581016035940">
+    <state x="-7" y="0" width="1293" height="1407" key="dock-window-1" timestamp="1585328989532">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="446" y="238" width="1936" height="989" key="dock-window-1/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581016035940" />
+    <state x="-7" y="0" width="1293" height="1407" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1585328989532" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1581006560876">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006560876" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/Lib/site-packages/discord/activity.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

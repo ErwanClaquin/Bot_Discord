@@ -17,6 +17,23 @@ class Player:
         self.revealed = False
         self.courseOfTheGame = list()
 
+    async def playAudio(self, guild, start=True):
+        path = "./classForWereWolf/AudioClasses/"
+        for voiceClient in bot.voice_clients:
+            if voiceClient.guild == guild:
+                print("Check voiceClient.is_playing() for start==", start)
+                while voiceClient.is_playing():
+                    pass
+                print("Not playing anymore.")
+                if start:
+                    audioSource = discord.FFmpegPCMAudio(
+                        "./classForWereWolf/AudioClasses/" + self.__class__.__name__ + "Description.mp3")
+                    voiceClient.play(source=audioSource, after=None)
+                else:
+                    audioSource = discord.FFmpegPCMAudio(
+                        "./classForWereWolf/AudioClasses/" + self.__class__.__name__ + "End.mp3")
+                    voiceClient.play(source=audioSource, after=None)
+
     async def play(self, members, centralDeck, courseOfTheGame):
         print(self.user, " : ", self.firstRole)
         self.members = members
@@ -41,10 +58,13 @@ class Player:
         pass
 
     async def wait(self):
-        msg = await self.bot.wait_for(event='message', check=self.check, timeout=30)
-        print("Attempt to find user or role :", msg.content)
-        await self.checkingMessage(msg)
-        return msg
+        try:
+            msg = await self.bot.wait_for(event='message', check=self.check, timeout=30)
+            await self.checkingMessage(msg)
+        except asyncio.TimeoutError:
+            await self.user.send("Vous avez mis trop de temps à répondre. Le rôle n'est donc plus joué.")
+            self.courseOfTheGame += [
+                "```" + self.user.name + " n'a pas correctement joué son rôle de " + self.firstRole + ".```"]
 
     def getMemberFromName(self, name):
         for member in self.members:

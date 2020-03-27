@@ -15,6 +15,15 @@ class Werewolf(Player):
         print("Wolfs are", str(wolfs))
         return wolfs
 
+    def getMembersNameWithoutWolf(self):
+        listMemberName = []
+        for member in self.members:
+            if member.user is not self.user and member.firstRole not in ["Loup-Garou", "Loup Alpha",
+                                                                         "Loup Shamane", "Loup rêveur"]:
+                listMemberName.append(member.user.name)
+        random.shuffle(listMemberName)
+        return listMemberName
+
     async def getSleepingWolf(self):
         sleepingWolf = False
         for member in self.members:
@@ -39,8 +48,8 @@ class Werewolf(Player):
             await msg.author.send(
                 "Le rôle à/au " + self.choice + " est un(e) " + self.getRoleFromDeck(
                     position=self.choice).lastRole + ".")
-            self.courseOfTheGame += ["```diff\n-" + self.user.name + "était le seul des loups et a observé à/au " +
-                                     self.choice + "ou il y avait un(e) " +
+            self.courseOfTheGame += ["```diff\n-" + self.user.name + " était le seul des loups et a observé à/au " +
+                                     self.choice + " où il y avait un(e) " +
                                      self.getRoleFromDeck(position=self.choice).lastRole + "```"]
 
     async def play(self, members, centralDeck, courseOfTheGame):

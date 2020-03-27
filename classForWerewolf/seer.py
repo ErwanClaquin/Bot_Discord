@@ -27,7 +27,7 @@ class Seer(Player):
                                          + "``````".join(self.getMembersName()) + "```")
                 else:
                     await self.user.send(
-                        " Écrivez une position parmis [gauche, droite, milieu] pour voir une des carte.")
+                        " Écrivez une position parmis ```gauche``````droite``````milieu```pour voir une des carte.")
                 await self.wait()
 
         elif self.state == "joueurs":
@@ -75,7 +75,8 @@ class Seer(Player):
                         print("End of look.")
                 else:
                     print("Failed")
-                    await self.user.send("Erreur, impossible de trouver le rôle visé. Veuillez réessayer.")
+                    await self.user.send(
+                        "Erreur, impossible de trouver le rôle visé. Veuillez réessayer parmis ```gauche``````droite``````milieu```")
                     await self.wait()
 
     async def play(self, members, centralDeck, courseOfTheGame):

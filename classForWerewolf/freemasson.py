@@ -20,6 +20,9 @@ class Freemason(Player):
         if not freemason:
             await self.user.send("Il n'y a pas d'autre franc-maçon parmis les joueurs.")
 
+    async def playAudio(self, guild, start=True):
+        pass
+
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:

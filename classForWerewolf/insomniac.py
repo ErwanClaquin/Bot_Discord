@@ -6,6 +6,9 @@ class Insomniac(Player):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
 
+    async def playAudio(self, guild, start=True):
+        pass
+
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:

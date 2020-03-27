@@ -6,15 +6,6 @@ class AlphaWerewolf(Werewolf):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
 
-    def getMembersNameWithoutWolf(self):
-        listMemberName = []
-        for member in self.members:
-            if member.user is not self.user and member.firstRole not in ["Loup-Garou", "Loup Alpha",
-                                                                         "Loup Shamane", "Loup rêveur"]:
-                listMemberName.append(member.user.name)
-        random.shuffle(listMemberName)
-        return listMemberName
-
     async def checkingMessage(self, msg):
         if msg.content not in self.getMembersNameWithoutWolf():
             # Failed to find user

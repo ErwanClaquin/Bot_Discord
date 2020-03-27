@@ -46,3 +46,5 @@ class Doppelganger(Player):
                 self.copyPlayer.play(members=self.members, centralDeck=centralDeck)
         else:
             await asyncio.sleep(random.randint(a=4, b=7))
+            self.courseOfTheGame += ["```css\nLe Doppelgänger était à/au " + self.user +
+                                     ", le rôle n'a donc pas été joué.```"]

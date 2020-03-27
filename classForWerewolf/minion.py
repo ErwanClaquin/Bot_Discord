@@ -15,6 +15,9 @@ class Minion(Player):
         print("Wolfs are", str(wolfs))
         return wolfs
 
+    async def playAudio(self, guild, start=True):
+        pass
+
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
