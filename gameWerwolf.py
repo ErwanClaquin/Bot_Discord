@@ -414,19 +414,17 @@ class LG:
 
         for member in ctx.author.voice.channel.members:
             await member.add_roles(self.roleForPlayer, reason="Début de partie.")
-            await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
+            # await member.move_to(channel=self.voiceChannel, reason="Début de partie.")
         print("Game started")
 
     @staticmethod
-    async def playAudio(guild):
+    async def playAudio(guild, audio):
         for voiceClient in bot.voice_clients:
             if voiceClient.guild == guild:
-                audioSource = discord.FFmpegPCMAudio("beginPlay.mp3")
-                voiceClient.play(source=audioSource, after=None)
-                print("Start playing ''beginPlay'' ...")
                 while voiceClient.is_playing():
                     pass
-                print("Payed ''beginPlay''")
+                audioSource = discord.FFmpegPCMAudio(audio)
+                voiceClient.play(source=audioSource, after=None)
                 break
 
     @staticmethod
@@ -442,8 +440,8 @@ class LG:
 
     async def playGame(self, ctx):
         await asyncio.sleep(1)
-        await self.join(ctx=ctx)
-        await self.playAudio(guild=ctx.guild)
+        # await self.join(ctx=ctx)
+        await self.playAudio(guild=ctx.guild, audio="beginPlay.mp3")
         for player in self.playersAndRoles:
             await player.user.send(
                 "```diff\n-NOUVELLE PARTIE-```Vous êtes " + player.firstRole + ", attendez votre tour pour plus d'informations.")
@@ -460,48 +458,58 @@ class LG:
                                       courseOfTheGame=self.courseOfTheGame)
                     await player.playAudio(guild=ctx.guild, start=False)
 
-        print("\n\nEND :\n")
+        print("\nAll roles had been play.\n")
         for player in self.playersAndRoles:
             print(player.user.name + " : " + player.lastRole)
         for deck in self.centralDeck:
             print(deck.user + " : " + deck.lastRole)
+
+        await self.playAudio(guild=ctx.guild, audio="beginVote.mp3")
         await self.letVote()
+
+        for voiceClient in bot.voice_clients:
+            if voiceClient.guild == ctx.guild:
+                await voiceClient.disconnect()
+                break
+
+        await asyncio.sleep(120)
         await self.endGame(ctx=ctx)
 
     async def letVote(self):
         mStart = await self.textChannel.send(
             self.roleForPlayer.mention + " \nDès maintenant les votes sont pris en compte. Votez parmis :```" +
-            "``````".join(self.getMembersName()) + "```en écrivant un des pseudos ci-dessus en message privé. "
-                                                   "Évitez de trop spammer si vous ne voulez pas que le décompte soit trop long. N'oubliez pas que vous ne"
-                                                   " pouvez pas voter pour vous même.")
-        for player in self.players:
-            await player.send("\n\nVotez ici parmis :```" + "``````".join(self.getMembersName()) +
-                              "```Seul le dernier pseudo valide sera pris en compte.")
+            "``````".join(self.getMembersName()) + "```en écrivant un des pseudos ci-dessus en message privé.\nÉvitez"
+                                                   " de trop spammer si vous ne voulez pas que le décompte soit trop "
+                                                   "long.\nN'oubliez pas que vous ne pouvez pas voter pour vous même.")
+        for player in self.playersAndRoles:
+            await player.user.send("Votez ici parmis :```" + "``````".join(player.getMembersName()) +
+                                   "```Seul le dernier pseudo valide sera pris en compte.")
 
         await asyncio.sleep(10)
-        await self.textChannel.send("Plus qu'une minute.")
+        await self.textChannel.send("Plus que 20s.")
         await asyncio.sleep(10)
         mEnd = await self.textChannel.send("Le décompte est terminé, obtention des votes ...")
         votes = await self.getVote(msgStart=mStart, msgEnd=mEnd)
         await self.applyVote(votes=votes)
         await self.displayCourseOfTheGame()
         await self.textChannel.send("Fin de la partie. Suppression du channel dans 2 minutes.")
+
         await asyncio.sleep(120)
 
     async def getVote(self, msgStart, msgEnd):
         votes = {player: None for player in self.getMembersName()}
 
-        for player in self.players:
-            async for msg in player.dm_channel.history(limit=None, before=msgEnd.created_at, after=msgStart.created_at):
+        for user in self.players:
+            async for msg in user.dm_channel.history(limit=None, before=msgEnd.created_at, after=msgStart.created_at):
                 if msg.author.name in self.getMembersName() and msg.content in self.getMembersName() and msg.content != msg.author.name:
                     player = self.getMemberFromName(name=msg.author.name)
                     player.vote(self.getMemberFromName(name=msg.content))
                     print(msg.author.name, "voted for", msg.content)
-                    self.courseOfTheGame += [msg.author.name + " a voté pour " + msg.content]
+                    self.courseOfTheGame += ["```" + msg.author.name + " a voté pour " + msg.content + "```"]
                     votes[msg.author.name] = msg.content
                     break
-            if votes[player.name] is None:
-                self.courseOfTheGame += ["```" + player.name + " n'a pas voté." + "```"]
+            if votes[user.name] is None:
+                self.courseOfTheGame += ["```" + user.name + " n'a pas voté." + "```"]
         return votes
 
     async def applyVote(self, votes):
@@ -517,7 +525,7 @@ class LG:
         del voteCount[None]
 
         playerOrder = sorted(voteCount.items(), key=lambda x: x[1], reverse=True)
-        print(playerOrder)
+        print("playerOrder", playerOrder)
         if playerOrder[0][1] == 0:  # Nobody vote
             await self.textChannel.send("`Partie non valide`, personne n'a voté.")
 
@@ -526,27 +534,28 @@ class LG:
             werewolves = self.getWolves()
             if len(werewolves) == 0:
                 await self.textChannel.send("Le village a raison, il n'y a pas de loups-garous parmis eux.")
-                await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
+                await self.textChannel.send("```css\nLES VILLAGEOIS ONT GAGNÉ```")
             else:
-                await self.textChannel.send(
-                    "Malheuresement, ```" + ", ".join(werewolves) + "```")
-                await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
+                await self.textChannel.send("Malheuresement, il y avait```" + ", ".join(werewolves) + "```")
+                await self.textChannel.send("```diff\n-LES LOUPS-GAROUS ONT GAGNÉ-```")
 
         else:  # Classic vote
             werewolves = self.getWolves()
             deaths = []
-            for i in range(len(self.players)):
+            for i in range(len(playerOrder)):
                 player = self.getMemberFromName(name=playerOrder[i][0])
                 isDead = await player.isDead(channel=self.textChannel)
                 if isDead:
                     deaths += await player.death(channel=self.textChannel, members=self.players)
-                    playerEqualVote = [p[0] for p in voteCount if
-                                       (p[1] == playerOrder[i][
-                                           1] and p[0] != playerOrder[i][
-                                            0])]  # Get player name with same number of vote against them
-                    print("OTHERS PLAYERS : \n")
+                    print("voteCount :", voteCount)
+
+                    # Get player name with same number of vote against them
+                    playerEqualVote = []
+                    for p in playerOrder:
+                        if p[1] == playerOrder[i][1] and p[0] != playerOrder[i][0]:
+                            playerEqualVote.append(self.getMemberFromName(name=p[0]))
+                    print("Other players with equals number of vote :", playerEqualVote)
                     for otherPlayer in playerEqualVote:
-                        print(otherPlayer)
                         isDead = await otherPlayer.isDead(channel=self.textChannel)
                         if isDead:
                             deaths += await otherPlayer.death(channel=self.textChannel, members=self.players)
@@ -555,21 +564,21 @@ class LG:
             if len(deaths) == 0:  # No one die
                 if len(werewolves) == 0:  # No Werewolves
                     await self.textChannel.send("Il n'ya pas eu de mort et il n'y a aucun Loup-Garou !")
-                    await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
+                    await self.textChannel.send("```css\nLES VILLAGEOIS ONT GAGNÉ```")
                 else:  # Werewolves among players
                     await self.textChannel.send(
                         "Il n'y a pas eu de mort mais```" + ", ".join(werewolves) + "```")
-                    await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
+                    await self.textChannel.send("```diff\n-LES LOUPS-GAROUS ONT GAGNÉ-```")
 
             elif len(deaths) == 1:
                 if deaths[0].lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:  # Werewolf die
-                    await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
+                    await self.textChannel.send("```css\nLES VILLAGEOIS ONT GAGNÉ```")
                 elif deaths[0].lastRole in ["Tanneur"]:  # Tanner died
-                    await self.textChannel.send("\n\n*LE TANNEUR A GAGNÉ.*")
+                    await self.textChannel.send("```Fix\n#LE TANNEUR A GAGNÉ#```")
                     if len(werewolves) > 0:  # Wolves in game
-                        await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT ÉGALEMENT GAGNÉ.*")
+                        await self.textChannel.send("```diff\n-LES LOUPS-GAROUS ONT ÉGALEMENT GAGNÉ```")
                 else:  # Villager died
-                    await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
+                    await self.textChannel.send("```diff\n-LES LOUPS-GAROUS ONT GAGNÉ-```")
 
             else:  # more than 2 deaths
                 rolesDead = []
@@ -577,15 +586,16 @@ class LG:
                     if dead.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane", "Loup rêveur"]:
                         rolesDead.append("Loup-Garou")
                     elif dead.lastRole in ["Tanneur"]:
-                        await self.textChannel.send("\n\n*LE TANNEUR A GAGNÉ.*")
+                        await self.textChannel.send("```Fix\n#LE TANNEUR A GAGNÉ#```")
                     else:
                         rolesDead.append("Villageois")
+                print("rolesDead :", rolesDead)
                 rolesDead = list(dict.fromkeys(rolesDead))
-                if len(rolesDead) > 0:  # Meaning there was a Tanner + other player(s)
-                    if ["Loup-Garou"] in rolesDead:
-                        await self.textChannel.send("\n\n*LES VILLAGEOIS ONT GAGNÉ.*")
-                    else:
-                        await self.textChannel.send("\n\n*LES LOUPS-GAROUS ONT GAGNÉ.*")
+                print("rolesDead unique :", rolesDead)
+                if "Loup-Garou" in rolesDead:
+                    await self.textChannel.send("```css\nLES VILLAGEOIS ONT GAGNÉ```")
+                else:
+                    await self.textChannel.send("```diff\n-LES LOUPS-GAROUS ONT GAGNÉ-```")
 
     async def displayCourseOfTheGame(self):
         print("display course of the game...")
