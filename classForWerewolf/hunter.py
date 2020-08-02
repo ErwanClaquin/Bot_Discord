@@ -13,10 +13,13 @@ class Hunter(Player):
         await self.user.send(
             "La majoritée vous a visé ! Vengez-vous parmis :```" + "``````".join(self.getMembersName()) + "```")
         await self.wait()
-        member = self.getMemberFromName(name=self.choice)
-        if await member.isDead(channel=channel):
-            deadPlayer += await member.death(channel=channel, members=members)
-        return deadPlayer
+        if self.choice == "#None":
+            return None
+        else:
+            member = self.getMemberFromName(name=self.choice)
+            if await member.isDead(channel=channel):
+                deadPlayer += await member.death(channel=channel, members=members)
+            return deadPlayer
 
     async def checkingMessage(self, msg):
         if msg.content not in self.getMembersName():

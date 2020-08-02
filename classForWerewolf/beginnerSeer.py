@@ -12,13 +12,14 @@ class BeginnerSeer(Player):
             print("Succeed")
             await self.user.send(
                 "Il y a " + self.getRoleFromDeck(position=self.choice).lastRole + " à la position choisie.")
-            self.courseOfTheGame += ["```css\n" + self.user.name + " était l'apprentie voyante et à vu un(e) " + \
-                                     self.getRoleFromDeck(position=self.choice).lastRole + \
+            self.courseOfTheGame += ["```css\n" + self.user.name + " était l'apprentie voyante et à vu un(e) " +
+                                     self.getRoleFromDeck(position=self.choice).lastRole +
                                      " à/au " + self.choice + ".```"]
         else:
             print("Failed")
             await self.user.send(
-                "Erreur, impossible de trouver le rôle visé. Veuillez réessayer parmis :```gauche``````droite``````milieu```")
+                "Erreur, impossible de trouver le rôle visé. Veuillez réessayer parmis :"
+                "```gauche``````droite``````milieu```")
             await self.wait()
 
     async def play(self, members, centralDeck, courseOfTheGame):
@@ -26,7 +27,8 @@ class BeginnerSeer(Player):
 
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
-                "Vous êtes l'apprentie voyante. Écrivez une position parmis :```gauche``````droite``````milieu```pour voir une des cartes.")
+                "Vous êtes l'apprentie voyante. Écrivez une position parmis :```gauche``````droite``````milieu```pour"
+                " voir une des cartes du deck.")
             await self.wait()
 
         else:

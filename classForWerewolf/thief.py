@@ -18,6 +18,13 @@ class Thief(Player):
             print("Succeed")
             self.choice = msg.content
             await msg.author.send("Joueur choisi : " + self.choice + ".")
+            player = self.getMemberFromName(self.choice)
+            await self.user.send(player.user.name + " était un(e) " + player.lastRole)
+            self.courseOfTheGame += ["```css\n" + self.user.name + " était le Voleur et a volé " +
+                                     player.user.name + " qui était un(e) " + player.lastRole + ".```"]
+            saveRole = self.lastRole
+            self.lastRole = player.lastRole
+            player.lastRole = saveRole
 
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
@@ -26,13 +33,6 @@ class Thief(Player):
                 "Vous êtes le Voleur. Écrivez le nom d'une personne dont vous souhaitez copier la carte parmis :```"
                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
-            player = self.getMemberFromName(self.choice)
-            await self.user.send(player.user.name + " était un(e) " + player.lastRole)
-            self.courseOfTheGame += ["```css\n" + self.user.name + " était le Voleur et a volé " +
-                                     player.user.name + " qui était un(e) " + player.lastRole + ".```"]
-            saveRole = self.lastRole
-            self.lastRole = player.lastRole
-            player.lastRole = saveRole
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))

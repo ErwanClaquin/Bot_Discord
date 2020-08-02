@@ -17,6 +17,10 @@ class AlphaWerewolf(Werewolf):
             # Succeed to find user
             print("Succeed")
             self.choice = msg.content
+            member = self.getMemberFromName(self.choice)
+            member.revealed = False
+            member.lastRole = "Loup-Garou"
+            print("Member", member.user.name, "is now a Werwolf.")
             await msg.author.send("Joueur choisi : " + self.choice + ".")
             self.courseOfTheGame += ["```diff\n-" + self.user.name + " a transformé " +
                                      self.choice + " en Loup-Garou.```"]
@@ -25,19 +29,17 @@ class AlphaWerewolf(Werewolf):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
 
         if self.user not in ["gauche", "droite", "milieu"]:
-            playersWithourWolfs = self.getMembersNameWithoutWolf()
-            if len(playersWithourWolfs) != 0:
+            playersWithoutWolfs = self.getMembersNameWithoutWolf()
+            if len(playersWithoutWolfs) != 0:
                 await self.user.send(
                     "Vous êtes le loup Alpha. Sélectionnez un joueur parmis :```" + "``````".join(
-                        playersWithourWolfs) + "```pour le transformer en loup-garou.")
+                        playersWithoutWolfs) + "```pour le transformer en loup-garou.")
                 await self.wait()
-                member = self.getMemberFromName(self.choice)
-                member.revealed = False
-                member.lastRole = "Loup-Garou"
-                print("Member", member.user.name, "is now a Werwolf.")
+
             else:
                 await self.user.send(
-                    "Actuellement, tous les joueurs sont des loups, vous ne pouvez donc pas en transformer un.")
+                    "Vous êtes le loup Alpha. Actuellement, tous les joueurs sont des loups, vous ne pouvez donc pas "
+                    "en transformer un.")
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))

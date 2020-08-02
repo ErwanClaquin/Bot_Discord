@@ -28,6 +28,8 @@ class Diviner(Player):
             print("Succeed")
             self.choice = msg.content
             await msg.author.send("Joueur choisi : " + self.choice + ".")
+            member = self.getMemberFromName(self.choice)
+            await self.reveal(user=member)
 
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
@@ -37,8 +39,6 @@ class Diviner(Player):
                 "Vous êtes le Divinateur. Écrivez le nom d'une personne dont vous souhaitez révéler le rôle parmis ```"
                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
-            member = self.getMemberFromName(self.choice)
-            await self.reveal(user=member)
 
         else:
             self.courseOfTheGame += [

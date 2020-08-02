@@ -27,10 +27,10 @@ class Werewolf(Player):
     async def getSleepingWolf(self):
         sleepingWolf = False
         for member in self.members:
-            if member.lastRole is not None:
-                if member.lastRole is "Loup rêveur":
-                    await self.user.send(member.user.name + " est un loup rêveur.")
-                    sleepingWolf = True
+            print("SleepingWolf", member.name, member.lastRole)
+            if member.lastRole is "Loup rêveur":
+                await self.user.send(member.user.name + " est un loup rêveur.")
+                sleepingWolf = True
         if not sleepingWolf:
             await self.user.send("Il n'y a pas de loup rêveur parmis les joueurs.")
 
@@ -58,8 +58,9 @@ class Werewolf(Player):
 
             wolfs = self.getWolf()
             if len(wolfs) == 0:
-                await self.user.send("Vous êtes un " + self.firstRole +
-                                     ", et le seul des loups-Garous. Vous pouvez choisir une carte du deck parmis :```gauche``````droite``````milieu```")
+                await self.user.send("Vous êtes un " + self.firstRole + ", et le seul des loups-Garous. Vous pouvez "
+                                     "choisir une carte du deck parmis :```gauche``````droite``````milieu``` pour voir "
+                                     "le rôle.")
                 await self.wait()
 
             else:

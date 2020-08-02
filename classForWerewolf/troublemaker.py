@@ -45,7 +45,6 @@ class Troublemaker(Player):
                 "Vous êtes la Noiseuse. Écrivez le nom d'un des joueurs dont vous voulez échanger le rôle parmis :```"
                 + "``````".join(self.getMembersName()) + "```")
             await self.wait()
-            return self.lastRole
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))

@@ -18,7 +18,12 @@ class ShamanWerewolf(Werewolf):
             # Succeed to find user
             print("Succeed")
             self.choice = msg.content
-            await msg.author.send("Joueur choisi : " + self.choice + ".")
+            await self.user.send("Joueur choisi : " + self.choice + ".")
+            member = self.getMemberFromName(self.choice)
+            await self.user.send(member.user.name + " est un(e) " + member.lastRole)
+            self.courseOfTheGame += ["```diff\n-" + self.user.name + " a observé " +
+                                     member.user.name + " qui était un(e)" + member.lastRole + ".```"]
+            print("Member", member.user.name, "is a ", member.lastRole)
 
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
@@ -29,15 +34,9 @@ class ShamanWerewolf(Werewolf):
                     "Vous êtes le loup Shaman. Sélectionnez un joueur parmis ```" + "``````".join(
                         self.playersWithoutWolfs) + "```pour voir son rôle.")
                 await self.wait()
-                member = self.getMemberFromName(self.choice)
-                await self.user.send(member.user.name + " est un(e) " + member.lastRole)
-                self.courseOfTheGame += ["```diff\n-" + self.user.name + " a observé " +
-                                         member.user.name + " qui était un(e)" + member.lastRole + ".```"]
-                print("Member", member.user.name, "is a ", member.lastRole)
-                return self.lastRole
             else:
                 await self.user.send(
-                    "Vous êtes le loup Shamane. Actuellement, tous les joueurs sont des loups, vous ne pouvez donc pas en observer un.")
+                    "Vous êtes le loup Shaman. Actuellement, tous les joueurs sont des loups, vous ne pouvez donc pas en observer un.")
 
         else:
             await asyncio.sleep(random.randint(a=4, b=7))

@@ -5,7 +5,6 @@ from classForWerewolf.player import *
 class GoshtHunter(Player):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
-        self.firstChoice = None
         self.state = None
         self.newChoice = None
 
@@ -23,13 +22,26 @@ class GoshtHunter(Player):
                 self.choice = self.getMemberFromName(name=msg.content)
                 await msg.author.send("Ce joueur est un(e) " + self.choice.lastRole + ".")
                 self.state = "FirstLook"
+                self.courseOfTheGame += ["```Markdown\n#" + self.user + " était le chasseur de fantôme et a vu " +
+                                         self.choice + " qui était un(e) " +
+                                         self.getMemberFromName(self.choice).lastRole + ".```"]
+                if self.choice.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane"]:
+                    await self.user.send("Vous vous transformez donc en Loup-Garou.")
+                    self.lastRole = "Loup-Garou"
+                if self.choice.lastRole in ["Tanneur"]:
+                    await self.user.send("Vous vous transformez donc en Tanneur.")
+                    self.lastRole = "Tanneur"
+                else:
+                    await self.user.send(
+                        "Souhaitez vous regarder un deuxième rôle ? Répondez par ```#Oui``` ou par ```#Non```")
+                    await self.wait()
 
         elif self.state == "FirstLook":
-            if msg.content == "Non":
-                # Failed to find user
+            if msg.content == "#Non":
+                # Suceeed
                 print("Succeed, don't want to look further role.")
 
-            elif msg.content == "Oui":
+            elif msg.content == "#Oui":
                 # Succeed to find user
                 print("Succeed, want to look further role.")
                 self.state = "SecondLook"
@@ -42,7 +54,7 @@ class GoshtHunter(Player):
 
             else:
                 print("Failed.")
-                await self.user.send("Erreur, répondez par ```Oui``` ou par ```Non```")
+                await self.user.send("Erreur, répondez par ```#Oui``` ou par ```#Non```")
                 await self.wait()
 
         elif self.state == "SecondLook":
@@ -69,22 +81,8 @@ class GoshtHunter(Player):
                 + "``````".join(self.getMembersName()) +
                 "```Vous rejoindrez le camp d'un loup, d'un vampire ou d'un tanneur si vous le trouvez.")
             await self.wait()
-            self.courseOfTheGame += ["```Markdown\n#" + self.user + " était le chasseur de fantôme et a vu " +
-                                     self.choice + " qui était un(e) " + self.getMemberFromName(self.choice).lastRole +
-                                     ".```"]
-            if self.choice.lastRole in ["Loup-Garou", "Loup Alpha", "Loup Shamane"]:
-                await self.user.send("Vous vous transformez donc en Loup-Garou.")
-                self.lastRole = "Loup-Garou"
-            if self.choice.lastRole in ["Tanneur"]:
-                await self.user.send("Vous vous transformez donc en Tanneur.")
-
-                self.lastRole = "Tanneur"
-            else:
-                await self.user.send(
-                    "Souhaitez vous regarder un deuxième rôle ? Répondez par ```Oui``` ou par ```Non```")
-                await self.wait()
 
         else:
-            await asyncio.sleep(random.randint(a=4, b=7))
+            await asyncio.sleep(random.randint(a=8, b=14))
             self.courseOfTheGame += ["```css\nLe chasseur de fantôme était à/au " + self.user +
                                      ", le rôle n'a donc pas été joué.```"]

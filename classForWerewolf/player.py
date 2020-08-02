@@ -35,7 +35,6 @@ class Player:
                     voiceClient.play(source=audioSource, after=None)
 
     async def play(self, members, centralDeck, courseOfTheGame):
-        print(self.user, " : ", self.firstRole)
         self.members = members
         self.centralDeck = centralDeck
         self.courseOfTheGame = courseOfTheGame
@@ -65,6 +64,7 @@ class Player:
             await self.user.send("Vous avez mis trop de temps à répondre. Le rôle n'est donc plus joué.")
             self.courseOfTheGame += [
                 "```" + self.user.name + " n'a pas correctement joué son rôle de " + self.firstRole + ".```"]
+            self.choice = "#None"
 
     def getMemberFromName(self, name):
         for member in self.members:

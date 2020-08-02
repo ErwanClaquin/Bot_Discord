@@ -27,7 +27,7 @@ class Seer(Player):
                                          + "``````".join(self.getMembersName()) + "```")
                 else:
                     await self.user.send(
-                        " Écrivez une position parmis ```gauche``````droite``````milieu```pour voir une des carte.")
+                        " Écrivez une position parmis ```gauche``````droite``````milieu```pour voir une des cartes.")
                 await self.wait()
 
         elif self.state == "joueurs":
@@ -55,23 +55,29 @@ class Seer(Player):
                     "Vous avez déjà choisi de regarder ce rôle. Veuillez réessayer parmis :```" + "``````".join(
                         self.newList) + "```")
                 await self.wait()
+                self.courseOfTheGame += ["```css\n" + self.user.name + " était la sorcière et a observé à/au " +
+                                         self.firstChoice + " où il y avait un(e) " +
+                                         self.getRoleFromDeck(position=self.firstChoice) + ".```"]
             else:
                 if self.getRoleFromDeck(position=msg.content) is not None:
                     print("Succeed")
+                    newChoice = self.getRoleFromDeck(position=msg.content).lastRole
                     await self.user.send(
-                        "Il y a " + self.getRoleFromDeck(position=msg.content).lastRole + " à la position choisie.")
+                        "Il y a " + newChoice + " à la position choisie.")
                     if self.firstChoice is None:
                         self.firstChoice = msg.content
                         self.newList.remove(self.firstChoice)
                         await self.user.send(
                             "Choisissez une autre position parmis :```" + "``````".join(self.newList) + "```")
                         await self.wait()
+                        self.courseOfTheGame += ["```css\n" + self.user.name + " était la sorcière et a observé à/au " +
+                                                 self.firstChoice + " où il y avait un(e) " +
+                                                 self.getRoleFromDeck(position=self.firstChoice) + ".```"]
                     else:
                         self.courseOfTheGame += ["```css\n" + self.user.name + " était la sorcière et a observé à/au " +
                                                  self.firstChoice + " où il y avait un(e) " +
                                                  self.getRoleFromDeck(position=self.firstChoice) + " ainsi qu'à/au" +
-                                                 msg.content + " où il y avait un(e)" +
-                                                 self.getRoleFromDeck(position=self.firstChoice) + ".```"]
+                                                 msg.content + " où il y avait un(e)" + newChoice + ".```"]
                         print("End of look.")
                 else:
                     print("Failed")
@@ -83,7 +89,7 @@ class Seer(Player):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
-                "Vous êtes la voyante. Écrivez :```joueurs```si vous souhaitez voir une carte d'un joueur ou :```deck```si vous souhaitez voir deux cartes au centre.")
+                "Vous êtes la sorcière. Écrivez :```joueurs```si vous souhaitez voir une carte d'un joueur ou :```deck```si vous souhaitez voir deux cartes du deck.")
             await self.wait()
 
         else:

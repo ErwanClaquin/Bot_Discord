@@ -18,20 +18,21 @@ class Drunkard(Player):
             print("Succeed")
             self.choice = msg.content
             await msg.author.send("Position choisie : " + self.choice + ".")
+            deck = self.getRoleFromDeck(self.choice)
+            self.courseOfTheGame += [
+                "```css\n" + self.user.name + " était le soûlard, et à choisi " + self.choice + " qui était un(e) "
+                + deck.lastRole + ".```"]
+            saveRole = self.lastRole
+            self.lastRole = deck.lastRole
+            deck.lastRole = saveRole
 
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         if self.user not in ["gauche", "droite", "milieu"]:
             await self.user.send(
-                "Vous êtes le Soûlard. Écrivez le nom d'une personne dont vous souhaitez copier la carte parmis :```gauche``````droite``````milieu```")
+                "Vous êtes le Soûlard. Écrivez une position parmis :```gauche``````droite``````milieu```"
+                " pour prendre le rôle")
             await self.wait()
-            deck = self.getRoleFromDeck(self.choice)
-            self.courseOfTheGame += [
-                "```css\n" + self.user.name + " était le soûlard, et à choisi " + self.choice + " qui était un(e) " + deck.lastRole + ".```"]
-            saveRole = self.lastRole
-            self.lastRole = deck.lastRole
-            deck.lastRole = saveRole
-
         else:
             self.courseOfTheGame += [
                 "```css\nLe soûlard était à/au " + self.user + ", le rôle n'a donc pas été joué.```"]

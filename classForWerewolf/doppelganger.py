@@ -20,6 +20,16 @@ class Doppelganger(Player):
             print("Succeed")
             self.choice = msg.content
             await msg.author.send("Joueur choisi : " + self.choice + ".")
+            member = self.getMemberFromName(self.choice)
+            await self.user.send(member.user.name + " était un(e) " + member.lastRole)
+            self.courseOfTheGame += ["```Markdown\n#" + self.user + " était le Doppelgänger et a choisi " +
+                                     self.choice + " qui était un(e) " + member.lastRole + ".```"]
+            print(self.user.name, ":", self.newRole)
+            self.copyPlayer = member.__class__(user=self.user, firstRole=self.firstRole, botRef=self.bot)
+            self.lastRole = self.copyPlayer.lastRole
+            self.newRole = self.lastRole
+            if self.copyPlayer.__class__ != Insomniac:
+                await self.copyPlayer.play(members=self.members, centralDeck=self.centralDeck)
 
     async def play(self, members, centralDeck, courseOfTheGame):
         await super().play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
@@ -30,21 +40,9 @@ class Doppelganger(Player):
                     + "``````".join(self.getMembersName()) + "```")
 
                 await self.wait()
-                member = self.getMemberFromName(self.choice)
-                await self.user.send(member.user.name + " était un(e) " + member.firstRole)
-                self.courseOfTheGame += ["```Markdown\n#" + self.user + " était le Doppelgänger et a choisi " +
-                                         self.choice + " qui était un(e) " + member.lastRole + ".```"]
-                print(self.user.name, ":", self.newRole)
-                self.copyPlayer = member.__class__(user=self.user, firstRole=self.firstRole, botRef=self.bot)
-                if self.copyPlayer.__class__ == Insomniac:
-                    self.newRole = "Insomniaque"
-                    self.lastRole = "Insomniaque"
-                else:
-                    await self.copyPlayer.play(members=self.members, centralDeck=centralDeck)
-                    self.lastRole = self.copyPlayer.lastRole
             else:
                 self.copyPlayer.play(members=self.members, centralDeck=centralDeck)
         else:
-            await asyncio.sleep(random.randint(a=4, b=7))
+            await asyncio.sleep(random.randint(a=8, b=14))
             self.courseOfTheGame += ["```css\nLe Doppelgänger était à/au " + self.user +
                                      ", le rôle n'a donc pas été joué.```"]

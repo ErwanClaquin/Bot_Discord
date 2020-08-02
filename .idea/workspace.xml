@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterDescription.mp3" afterDir="false" />
+    <list default="true" id="e128d94e-2898-4b8e-8b6c-1b967fbd0f4e" name="Default Changelist" comment="14th Push to the git.&#10;Check multiple death and hunter.&#10;Need to add all .mp3 and options now.">
+      <change afterPath="$PROJECT_DIR$/Music.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainMusic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterDesciption.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/beginVote.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botBasics.py" beforeDir="false" afterPath="$PROJECT_DIR$/botBasics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/alphaWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/alphaWerewolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/beginnerSeer.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/beginnerSeer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/diviner.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/diviner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/doppelganger.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/doppelganger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/drunkard.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/drunkard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/goshtHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/goshtHunter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/hunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/hunter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/seer.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/seer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/shamanWerewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/shamanWerewolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/thief.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/thief.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/troublemaker.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/troublemaker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/werewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/werewolf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameWerwolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameWerwolf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/abc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/abc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cooldowns.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cooldowns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/gateway.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/gateway.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/guild.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/guild.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/discord/shard.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/shard.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +95,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gameWerwolf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="gameWerwolf (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bot_Discord" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,11 +103,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Werewolf" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Werewolf/gameWerwolf.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gameWerwolf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,6 +129,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mainMusic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bot_Discord" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainMusic.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -139,9 +182,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.mainMusic" />
         <item itemvalue="Python.botBasics" />
-        <item itemvalue="Python.gameWerwolf" />
+        <item itemvalue="Python.gameWerwolf (1)" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585332283276</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="14th Push to the git.&#10;Check multiple death and hunter.&#10;Need to add all .mp3 and options now.">
+      <created>1585447278638</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1585447278638</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,144 +337,58 @@
     <MESSAGE value="11th Push to the git.&#10;Added a timeout for player which can't answer.&#10;Change vote in DM to allow fake speech.&#10;Still check to do with multiples deaths." />
     <MESSAGE value="12th Push to the git.&#10;Added &quot;player didn't vote&quot; on course of the game.&#10;Still check to do with multiples deaths." />
     <MESSAGE value="13th Push to the git.&#10;Added audio to describe each role (just with &quot;tes&quot; sound for the moment.). &#10;&#10;More to add (to announce winner and to vote). &#10;Need to disconnect the bot after the end of the game. &#10;&#10;Still check to do with multiples deaths (3 people needed to check this feature with hunter, 4 to be sure)." />
-    <option name="LAST_COMMIT_MESSAGE" value="13th Push to the git.&#10;Added audio to describe each role (just with &quot;tes&quot; sound for the moment.). &#10;&#10;More to add (to announce winner and to vote). &#10;Need to disconnect the bot after the end of the game. &#10;&#10;Still check to do with multiples deaths (3 people needed to check this feature with hunter, 4 to be sure)." />
+    <MESSAGE value="14th Push to the git.&#10;Check multiple death and hunter.&#10;Need to add all .mp3 and options now." />
+    <option name="LAST_COMMIT_MESSAGE" value="14th Push to the git.&#10;Check multiple death and hunter.&#10;Need to add all .mp3 and options now." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1512" y="362" key="#Notifications" timestamp="1585235873399">
+    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594559287270">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1512" y="362" key="#Notifications/0.0.2560.1400@0.0.2560.1400" timestamp="1585235873399" />
-    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585327552246">
+    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1594559287270" />
+    <state x="100" y="100" width="1094" height="1200" key="DiffContextDialog" timestamp="1593210032834">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1585327552246" />
-    <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581006605900">
+    <state x="100" y="100" width="1094" height="1200" key="DiffContextDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1593210032834" />
+    <state x="1666" y="685" key="FileChooserDialogImpl" timestamp="1594803731374">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1011" y="449" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006605900" />
-    <state x="967" y="345" width="1433" height="850" key="CommitChangelistDialog2" timestamp="1585332267232">
+    <state x="1666" y="685" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1594803731374" />
+    <state width="1257" height="287" key="GridCell.Tab.0.bottom" timestamp="1594668572562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="715" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582332056498" />
-    <state x="967" y="345" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582752584837" />
-    <state x="967" y="345" width="1433" height="850" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1585332267232" />
-    <state x="898" y="615" key="GitRewordDialog" timestamp="1585169568978">
+    <state width="1257" height="287" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1594668572562" />
+    <state width="1257" height="287" key="GridCell.Tab.0.center" timestamp="1594668572562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="898" y="615" key="GitRewordDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1585169568978" />
-    <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog" timestamp="1580129769400">
+    <state width="1257" height="287" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1594668572562" />
+    <state width="1257" height="287" key="GridCell.Tab.0.left" timestamp="1594668572562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1115" y="618" width="355" height="165" key="Github.CreateGistDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580129769400" />
-    <state width="1259" height="323" key="GridCell.Tab.0.bottom" timestamp="1585446952425">
+    <state width="1257" height="287" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1594668572562" />
+    <state width="1257" height="287" key="GridCell.Tab.0.right" timestamp="1594668572562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
-    <state width="1899" height="152" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="1259" height="370" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582760740006" />
-    <state width="2539" height="274" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
-    <state width="2539" height="352" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
-    <state width="2539" height="347" key="GridCell.Tab.0.bottom/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1259" height="323" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1585446952425" />
-    <state width="1259" height="323" key="GridCell.Tab.0.center" timestamp="1585446952425">
+    <state width="1257" height="287" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1594668572562" />
+    <state x="1421" y="346" key="SettingsEditor" timestamp="1594337054836">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
-    <state width="1899" height="152" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="1259" height="370" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582760740006" />
-    <state width="2539" height="274" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
-    <state width="2539" height="352" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
-    <state width="2539" height="347" key="GridCell.Tab.0.center/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1259" height="323" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1585446952425" />
-    <state width="1259" height="323" key="GridCell.Tab.0.left" timestamp="1585446952425">
+    <state x="1421" y="346" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1594337054836" />
+    <state x="100" y="100" width="2409" height="1200" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593387246966">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
-    <state width="1899" height="152" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="1259" height="370" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582760740006" />
-    <state width="2539" height="274" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
-    <state width="2539" height="352" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
-    <state width="2539" height="347" key="GridCell.Tab.0.left/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1259" height="323" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1585446952425" />
-    <state width="1259" height="323" key="GridCell.Tab.0.right" timestamp="1585446952425">
+    <state x="100" y="100" width="2409" height="1200" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1593387246966" />
+    <state x="1616" y="528" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1596377083783">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582393983592" />
-    <state width="1899" height="152" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298571697" />
-    <state width="1259" height="370" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582760740006" />
-    <state width="2539" height="274" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814678829" />
-    <state width="2539" height="352" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579564643205" />
-    <state width="2539" height="347" key="GridCell.Tab.0.right/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579785714643" />
-    <state width="1259" height="323" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1585446952425" />
-    <state width="936" height="348" key="GridCell.Tab.1.bottom" timestamp="1577411148293">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577411148293" />
-    <state width="936" height="348" key="GridCell.Tab.1.center" timestamp="1577411148293">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577411148293" />
-    <state width="936" height="348" key="GridCell.Tab.1.left" timestamp="1577411148293">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577411148293" />
-    <state width="936" height="348" key="GridCell.Tab.1.right" timestamp="1577411148293">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="936" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577411148293" />
-    <state x="1229" y="225" key="SettingsEditor" timestamp="1585240128731">
+    <state x="1616" y="528" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1596377083783" />
+    <state x="331" y="432" width="612" height="536" key="find.popup" timestamp="1594559491784">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="922" y="167" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577402790488" />
-    <state x="1229" y="225" key="SettingsEditor/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581282552153" />
-    <state x="1229" y="225" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1585240128731" />
-    <state width="664" height="601" key="SwitcherDM" timestamp="1580940869943">
+    <state x="331" y="432" width="612" height="536" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1594559491784" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1594556967697">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1577407838851" />
-    <state width="664" height="601" key="SwitcherDM/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1580940869943" />
-    <state x="1062" y="427" key="Vcs.Push.Dialog.v2" timestamp="1585332286141">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="797" y="317" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582332068988" />
-    <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582752595149" />
-    <state x="1062" y="427" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1585332286141" />
-    <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579812317882">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577494171864" />
-    <state x="123" y="124" width="2315" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579812317882" />
-    <state x="429" y="178" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1585443318853">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="655" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582381644800" />
-    <state x="-1590" y="1168" width="458" height="275" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@-1920.1057.1920.1040" timestamp="1580298220002" />
-    <state x="439" y="150" width="607" height="369" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1583937820211" />
-    <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1579814056832" />
-    <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1069.1920.1040/-3840.1072.1920.1040@0.0.2560.1400" timestamp="1579556565026" />
-    <state x="873" y="464" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-3840.1072.1920.1040/-1920.1069.1920.1040@0.0.2560.1400" timestamp="1579782939019" />
-    <state x="429" y="178" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1585443318853" />
-    <state x="304" y="320" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581458811996">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="304" y="320" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581458811996" />
-    <state x="1090" y="619" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582759920864">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1090" y="619" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1582759920864" />
-    <state x="1011" y="260" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1577402601782">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1011" y="260" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1577402601782" />
-    <state x="-7" y="0" width="1293" height="1407" key="dock-window-1" timestamp="1585434591003">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="446" y="238" width="1936" height="989" key="dock-window-1/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581016035940" />
-    <state x="-7" y="0" width="1293" height="1407" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1585434591003" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1581006560876">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.1057.1920.1040/-3840.1065.1920.1040@0.0.2560.1400" timestamp="1581006560876" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1594556967697" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
