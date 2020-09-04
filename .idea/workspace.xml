@@ -351,9 +351,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="15th Push to the git.&#10;Rewrite some roles and enable the &quot;afk&quot; play (if the player is to long to play his role.)&#10;Checks needed to ensure issues." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594559287270">
+    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599245978307">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599245978307" />
     <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1594559287270" />
     <state x="1445" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599245669922">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -363,9 +364,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1029" y="557" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1400@0.0.2560.1400" timestamp="1596568882290" />
-    <state x="1642" y="278" key="CommitChangelistDialog2" timestamp="1596389386562">
+    <state x="1642" y="278" key="CommitChangelistDialog2" timestamp="1599245948464">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="1642" y="278" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599245948464" />
     <state x="1642" y="278" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1596389386562" />
     <state x="100" y="100" width="1094" height="1200" key="DiffContextDialog" timestamp="1593210032834">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -399,9 +401,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.2560.1400@0.0.2560.1400" timestamp="1596569238413" />
-    <state x="1578" y="437" key="Vcs.Push.Dialog.v2" timestamp="1596389404542">
+    <state x="1578" y="437" key="Vcs.Push.Dialog.v2" timestamp="1599245958075">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="1578" y="437" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599245958075" />
     <state x="1578" y="437" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1596389404542" />
     <state x="93" y="93" width="2375" height="1215" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1596569084683">
       <screen x="0" y="0" width="2560" height="1400" />
