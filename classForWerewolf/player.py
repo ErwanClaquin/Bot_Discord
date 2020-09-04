@@ -58,7 +58,7 @@ class Player:
 
     async def wait(self):
         try:
-            msg = await self.bot.wait_for(event='message', check=self.check, timeout=30)
+            msg = await self.bot.wait_for(event='message', check=self.check, timeout=5)
             await self.checkingMessage(msg)
         except asyncio.TimeoutError:
             await self.user.send("Vous avez mis trop de temps à répondre. Le rôle n'est donc plus joué.")

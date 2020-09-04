@@ -7,7 +7,7 @@ from classForWerewolf.diviner import *
 from classForWerewolf.doppelganger import *
 from classForWerewolf.drunkard import *
 from classForWerewolf.freemasson import *
-from classForWerewolf.goshtHunter import *
+from classForWerewolf.ghostHunter import *
 from classForWerewolf.hunter import *
 from classForWerewolf.insomniac import *
 from classForWerewolf.minion import *
@@ -271,7 +271,6 @@ class LG:
         """
         await asyncio.sleep(1)
         await join(ctx=ctx)
-        # task = asyncio.ensure_future(connectMusic(voiceChannelID=self.voiceChannel.id, guildID=ctx.guild.id, audio="Music.mp3"))
         subprocess.Popen(["python.exe", "mainMusic.py", str(self.voiceChannel.id), str(ctx.guild.id), "Music.mp3"])
         await self.delAllMsg(waitingTime=0)
         await playAudio(guild=ctx.guild, audio="beginPlay.mp3")
@@ -313,7 +312,7 @@ class LG:
         await self.displayCourseOfTheGame()
         await self.textChannel.send("Fin de la partie. Suppression du channel dans 2 minutes.")
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(20)
         await self.endGame(ctx=ctx)
 
     async def getVote(self, msgStart, msgEnd):
@@ -660,7 +659,7 @@ class LG:
             listToAdd.append(Seer(user=user, firstRole=roleToAdd, botRef=bot))
 
         elif roleToAdd == "Chasseur de Fantômes":
-            listToAdd.append(GoshtHunter(user=user, firstRole=roleToAdd, botRef=bot))
+            listToAdd.append(GhostHunter(user=user, firstRole=roleToAdd, botRef=bot))
 
         elif roleToAdd == "Apprentie voyante":
             listToAdd.append(
@@ -708,6 +707,24 @@ async def lg(ctx, value=""):
     :param value: parameters for launching different step of the game
     :return:
     """
+
+    if ctx.author.voice is None:
+        await ctx.message.channel.send("Un utilisateur à besoin d'être connecté")
+    else:
+        if value == "create" or value == "c":
+            if lgGame.get(ctx.guild.name) is None:
+                lgGame[ctx.guild.name] = LG()
+            await lgGame[ctx.guild.name].creatingGame(ctx=ctx)
+
+        elif value == "validate" or value == "v":
+            if lgGame.get(ctx.guild.name) is not None:
+                await lgGame[ctx.guild.name].validateGame(ctx)
+            else:
+                await ctx.channel.send("Partie non créée.")
+        else:
+            await ctx.channel.send(
+                "Commande inconnue. Tapez <<" + bot.command_prefix + "help>> pour plus d'informations")
+    """
     try:
         if ctx.author.voice is None:
             await ctx.message.channel.send("Un utilisateur à besoin d'être connecté")
@@ -727,3 +744,4 @@ async def lg(ctx, value=""):
                     "Commande inconnue. Tapez <<" + bot.command_prefix + "help>> pour plus d'informations")
     except AttributeError:
         await ctx.message.channel.send("Commande non supportée en Message Privé.")
+"""

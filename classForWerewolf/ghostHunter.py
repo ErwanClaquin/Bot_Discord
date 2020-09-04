@@ -2,7 +2,7 @@ from classForWerewolf.player import *
 
 
 # =-=-=-= GOSHTHUNTER CLASS =-=-=-= #
-class GoshtHunter(Player):
+class GhostHunter(Player):
     def __init__(self, user, firstRole, botRef):
         super().__init__(user=user, firstRole=firstRole, botRef=botRef)
         self.state = None
@@ -84,5 +84,5 @@ class GoshtHunter(Player):
 
         else:
             await asyncio.sleep(random.randint(a=8, b=14))
-            self.courseOfTheGame += ["```css\nLe chasseur de fantôme était à/au " + self.user +
+            self.courseOfTheGame += ["```css\nLe chasseur de fantômes était à/au " + self.user +
                                      ", le rôle n'a donc pas été joué.```"]

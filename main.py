@@ -78,8 +78,5 @@ loop.run_forever()
 #       "Vous avez {x} minutes pour voter. (...)",
 #       "Les {role(s)} ont gagnés !"
 
-# TODO: Add music to AN OTHER bot to have a nicer immersion. Music can't be change first
 
 # TODO: Add options (change the musics, the time of discussion, reminder of time left (1min & 30s))
-
-# TODO: Add waiting over : generate error currently

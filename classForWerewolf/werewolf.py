@@ -27,7 +27,6 @@ class Werewolf(Player):
     async def getSleepingWolf(self):
         sleepingWolf = False
         for member in self.members:
-            print("SleepingWolf", member.name, member.lastRole)
             if member.lastRole is "Loup rêveur":
                 await self.user.send(member.user.name + " est un loup rêveur.")
                 sleepingWolf = True
