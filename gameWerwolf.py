@@ -170,8 +170,7 @@ class LG:
             self.players = [member for member in ctx.author.voice.channel.members if not member.bot]
 
             # =-=-=-= CHECKING INVALID PARTY =-=-=-= #
-            # TODO : REPLACE HERE BY 3 PLAYERS MIN, JUST DID THAT TO CHECK WHEN I'M ALONE
-            if len(self.players) < 1:
+            if len(self.players) < 3:
                 self.msgToDelete.append(await ctx.channel.send(
                     "Nombre de joueurs insuffisant : 3 joueurs minimum. (" + str(
                         len(self.players)) + " actuellement.)"))
@@ -254,7 +253,7 @@ class LG:
         self.lastVoiceChannel = ctx.author.voice.channel
         await self.deleteCategory(ctx=ctx, reason="Pas de dualité de channel.")
         await self.createGameSpace(ctx=ctx)
-        # await self.movePlayer(ctx=ctx, voiceChannel=self.voiceChannel, reason="Début de partie.")
+        await self.movePlayer(ctx=ctx, voiceChannel=self.voiceChannel, reason="Début de partie.")
 
         print("Game started")
         self.msgToDelete.append(await ctx.message.channel.send("Début de la partie."))
@@ -293,26 +292,28 @@ class LG:
         Let player vote for other players
         :return: None
         """
+        timeLeft = 300
         msgStart = await self.textChannel.send(
             self.roleForPlayer.mention + " \nDès maintenant les votes sont pris en compte. Votez parmis :```" +
             "``````".join(
                 self.getMembersName()) + "```en écrivant un des pseudos ci-dessus en **_message privé_**.\nÉvitez"
                                          " de trop spammer si vous ne voulez pas que le décompte soit trop "
-                                         "long.\nN'oubliez pas que vous ne pouvez pas voter pour vous même.")
+                                         "long.\nN'oubliez pas que vous ne pouvez pas voter pour vous même.\n"
+                                         "Vous avez " + str(timeLeft) + " secondes pour voter.")
         for player in self.playersAndRoles:
             await player.user.send("Votez ici parmis :```" + "``````".join(player.getMembersName()) +
                                    "```Seul le dernier pseudo valide sera pris en compte.")
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(timeLeft - 30)
         await self.textChannel.send("Plus que 30s.")
-        await asyncio.sleep(5)
+        await asyncio.sleep(30)
         msgEnd = await self.textChannel.send("Le décompte est terminé, obtention des votes ...")
         votes = await self.getVote(msgStart=msgStart, msgEnd=msgEnd)
         await self.applyVote(votes=votes)
         await self.displayCourseOfTheGame()
-        await self.textChannel.send("Fin de la partie. Suppression du channel dans 2 minutes.")
 
-        await asyncio.sleep(20)
+        await self.textChannel.send("Fin de la partie. Suppression du channel dans 2 minutes.")
+        await asyncio.sleep(120)
         await self.endGame(ctx=ctx)
 
     async def getVote(self, msgStart, msgEnd):

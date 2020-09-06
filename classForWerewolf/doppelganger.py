@@ -41,7 +41,7 @@ class Doppelganger(Player):
 
                 await self.wait()
             else:
-                self.copyPlayer.play(members=self.members, centralDeck=centralDeck)
+                self.copyPlayer.play(members=members, centralDeck=centralDeck, courseOfTheGame=courseOfTheGame)
         else:
             await asyncio.sleep(random.randint(a=8, b=14))
             self.courseOfTheGame += ["```css\nLe Doppelgänger était à/au " + self.user +

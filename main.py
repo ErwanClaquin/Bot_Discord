@@ -62,21 +62,5 @@ bot.loop.create_task(botAlone())
 loop.create_task(bot.start(TOKEN))
 loop.run_forever()
 
-# TODO: Add sentences to THIS bot to have a nicer immersion
-#       "Tout le monde fermez les yeux",
-#       alphaWerewolf,
-#       beginnerSeer,
-#       diviner,
-#       doppelganger,
-#       drunkard,
-#       goshtHunter,
-#       seer,
-#       shamanWerewolf,
-#       thief,
-#       troublemaker,
-#       werewolf,
-#       "Vous avez {x} minutes pour voter. (...)",
-#       "Les {role(s)} ont gagnés !"
 
-
-# TODO: Add options (change the musics, the time of discussion, reminder of time left (1min & 30s))
+# TODO_Options: Add options (change the musics, the time of discussion, reminder of time left (1min & 30s))

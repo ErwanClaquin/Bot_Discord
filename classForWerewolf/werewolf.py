@@ -58,8 +58,8 @@ class Werewolf(Player):
             wolfs = self.getWolf()
             if len(wolfs) == 0:
                 await self.user.send("Vous êtes un " + self.firstRole + ", et le seul des loups-Garous. Vous pouvez "
-                                     "choisir une carte du deck parmis :```gauche``````droite``````milieu``` pour voir "
-                                     "le rôle.")
+                                                                        "choisir une carte du deck parmis :```gauche``````droite``````milieu``` pour voir "
+                                                                        "le rôle.")
                 await self.wait()
 
             else:
@@ -72,3 +72,13 @@ class Werewolf(Player):
         else:
             await asyncio.sleep(random.randint(a=4, b=7))
             self.courseOfTheGame += ["```diff\n-Le " + self.firstRole + " était à/au " + self.user + ".```"]
+
+    async def wait(self):
+        try:
+            msg = await self.bot.wait_for(event='message', check=self.check, timeout=30)
+            await Werewolf.checkingMessage(self=self, msg=msg)
+        except asyncio.TimeoutError:
+            await self.user.send("Vous avez mis trop de temps à répondre. Le rôle de Loup-Garou n'est donc plus joué.")
+            self.courseOfTheGame += [
+                "```" + self.user.name + " n'a pas correctement joué son rôle de Loup-Garou.```"]
+            self.choice = "#None"
