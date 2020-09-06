@@ -23,7 +23,7 @@ class Player:
             if voiceClient.guild == guild:
                 print("Check voiceClient.is_playing() for start==", start)
                 while voiceClient.is_playing():
-                    pass
+                    await asyncio.sleep(1)
                 print("Not playing anymore.")
                 if start:
                     audioSource = discord.FFmpegPCMAudio(
@@ -58,7 +58,7 @@ class Player:
 
     async def wait(self):
         try:
-            msg = await self.bot.wait_for(event='message', check=self.check, timeout=5)
+            msg = await self.bot.wait_for(event='message', check=self.check, timeout=30)
             await self.checkingMessage(msg)
         except asyncio.TimeoutError:
             await self.user.send("Vous avez mis trop de temps à répondre. Le rôle n'est donc plus joué.")

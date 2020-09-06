@@ -5,16 +5,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/AlphaWerewolfDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/AlphaWerewolfDescription.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/AlphaWerewolfEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/AlphaWerewolfEnd.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerDescription.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerEnd.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerDescription.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/BeginnerSeerEnd.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DivinerDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DivinerDescription.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DivinerEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DivinerEnd.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DoppelgangerDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DoppelgangerDescription.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DoppelgangerEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DoppelgangerEnd.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DrunkardDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DrunkardDescription.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DrunkardEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/DrunkardEnd.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GoshtHunterDescription.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GoshtHunterEnd.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GameEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GameEnd.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GameStart.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GameStart.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GhostHunterDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GhostHunterDescription.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GhostHunterEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/GhostHunterEnd.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterDescription.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/HunterEnd.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/SeerDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/SeerDescription.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/SeerEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/SeerEnd.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/ShamanWerewolfDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/ShamanWerewolfDescription.mp3" afterDir="false" />
@@ -25,11 +29,7 @@
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/TroublemakerEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/TroublemakerEnd.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/WerewolfDescription.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/WerewolfDescription.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/AudioClasses/WerewolfEnd.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/AudioClasses/WerewolfEnd.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/goshtHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/ghostHunter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classForWerewolf/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classForWerewolf/werewolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classForWerewolf/werewolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameWerwolf.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameWerwolf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +312,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596389397405</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="16th Push to the git.&#10;Add audio for class and for begin &amp; end of the game">
+      <created>1599245955451</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1599245955451</updated>
+    </task>
+    <task id="LOCAL-00016" summary="17th Push to the git.&#10;Missed some audio files">
+      <created>1599246026597</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1599246026597</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,7 +362,9 @@
     <MESSAGE value="13th Push to the git.&#10;Added audio to describe each role (just with &quot;tes&quot; sound for the moment.). &#10;&#10;More to add (to announce winner and to vote). &#10;Need to disconnect the bot after the end of the game. &#10;&#10;Still check to do with multiples deaths (3 people needed to check this feature with hunter, 4 to be sure)." />
     <MESSAGE value="14th Push to the git.&#10;Check multiple death and hunter.&#10;Need to add all .mp3 and options now." />
     <MESSAGE value="15th Push to the git.&#10;Rewrite some roles and enable the &quot;afk&quot; play (if the player is to long to play his role.)&#10;Checks needed to ensure issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="15th Push to the git.&#10;Rewrite some roles and enable the &quot;afk&quot; play (if the player is to long to play his role.)&#10;Checks needed to ensure issues." />
+    <MESSAGE value="16th Push to the git.&#10;Add audio for class and for begin &amp; end of the game" />
+    <MESSAGE value="17th Push to the git.&#10;Missed some audio files" />
+    <option name="LAST_COMMIT_MESSAGE" value="17th Push to the git.&#10;Missed some audio files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1654" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599245978307">
@@ -364,10 +380,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1029" y="557" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1400@0.0.2560.1400" timestamp="1596568882290" />
-    <state x="1642" y="278" key="CommitChangelistDialog2" timestamp="1599245948464">
+    <state x="1642" y="278" key="CommitChangelistDialog2" timestamp="1599246023990">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1642" y="278" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599245948464" />
+    <state x="1642" y="278" key="CommitChangelistDialog2/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599246023990" />
     <state x="1642" y="278" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1596389386562" />
     <state x="100" y="100" width="1094" height="1200" key="DiffContextDialog" timestamp="1593210032834">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -377,21 +393,25 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1666" y="685" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1594803731374" />
-    <state width="1257" height="285" key="GridCell.Tab.0.bottom" timestamp="1596583282054">
+    <state width="1257" height="285" key="GridCell.Tab.0.bottom" timestamp="1599246955801">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state width="1257" height="285" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599246955801" />
     <state width="1257" height="285" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1596583282054" />
-    <state width="1257" height="285" key="GridCell.Tab.0.center" timestamp="1596583282053">
+    <state width="1257" height="285" key="GridCell.Tab.0.center" timestamp="1599246955801">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state width="1257" height="285" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599246955801" />
     <state width="1257" height="285" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1596583282053" />
-    <state width="1257" height="285" key="GridCell.Tab.0.left" timestamp="1596583282053">
+    <state width="1257" height="285" key="GridCell.Tab.0.left" timestamp="1599246955801">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state width="1257" height="285" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599246955801" />
     <state width="1257" height="285" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1596583282053" />
-    <state width="1257" height="285" key="GridCell.Tab.0.right" timestamp="1596583282054">
+    <state width="1257" height="285" key="GridCell.Tab.0.right" timestamp="1599246955801">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state width="1257" height="285" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599246955801" />
     <state width="1257" height="285" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1596583282054" />
     <state x="1421" y="346" key="SettingsEditor" timestamp="1594337054836">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -401,10 +421,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.2560.1400@0.0.2560.1400" timestamp="1596569238413" />
-    <state x="1578" y="437" key="Vcs.Push.Dialog.v2" timestamp="1599245958075">
+    <state x="1578" y="437" key="Vcs.Push.Dialog.v2" timestamp="1599246029402">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1578" y="437" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599245958075" />
+    <state x="1578" y="437" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599246029402" />
     <state x="1578" y="437" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1596389404542" />
     <state x="93" y="93" width="2375" height="1215" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1596569084683">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -414,10 +434,15 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="100" y="100" width="2409" height="1200" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1593387246966" />
-    <state x="1616" y="528" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1596567707393">
+    <state x="1616" y="528" width="458" height="275" key="com.intellij.ide.util.TipDialog" timestamp="1599404476450">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="1616" y="528" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599404476450" />
     <state x="1616" y="528" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1596567707393" />
+    <state x="1273" y="0" width="1293" height="1407" key="dock-window-1" timestamp="1599246237592">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1273" y="0" width="1293" height="1407" key="dock-window-1/0.0.2560.1400/-1920.1058.1920.1040@0.0.2560.1400" timestamp="1599246237592" />
     <state x="331" y="432" width="612" height="536" key="find.popup" timestamp="1594559491784">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
